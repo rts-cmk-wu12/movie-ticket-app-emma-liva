@@ -3,7 +3,7 @@ import Fetch from "../components/fetch";
 
 function HomePage() {
     const [comingSoon, setComingSoon] = useState([]);
-
+    
     return (
         <>
             <Fetch
