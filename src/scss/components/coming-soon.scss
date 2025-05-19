@@ -1,0 +1,23 @@
+@use '../placeholders/mixin.scss';
+
+.coming-soon {
+    &__heading {
+        font-size: 1.25em;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+
+    &__slider {
+        gap: 1rem;
+        @include mixin.slider();
+
+        &__item {
+            &-poster {
+                width: 19rem;
+                height: 11rem;
+                object-fit: cover;
+                border-radius: .5rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@use '../placeholders/root.scss';
+
+.form {
+    background-color: root.$tertiary-black;
+    margin-inline: 1rem;
+    padding: .8rem 1rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+
+    &__search {
+        &-icon {
+            color: root.$icon-gray;
+            width: 1.125rem;
+            height: 1.125rem;
+        }
+        
+        &-input {
+            background: none;
+            border: none;
+            width: 12.4rem;
+
+            &::placeholder {
+                color: root.$typeography-gray;
+            }
+        }
+    }
+}

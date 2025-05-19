@@ -1,0 +1,9 @@
+@mixin slider() {
+    display: flex;
+    overflow-x: x;
+    scroll-snap-type: x mandatory;
+
+    &__item {
+        scroll-snap-align: center;
+    }
+}
