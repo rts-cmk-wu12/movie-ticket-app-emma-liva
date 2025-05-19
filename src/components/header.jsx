@@ -1,9 +1,12 @@
 import { CiBookmark } from "react-icons/ci";
 import { FaAngleLeft } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
+import { useNavigate } from "react-router";
 import '../scss/components/header.scss';
 
 function Header({ title, navigateReturn = true, toPage = -1, search = false, bookmark = false }) {
+    const navigate = useNavigate();
+
     return (
         <header className="header">
             {navigateReturn && <FaAngleLeft color='#FFF' onClick={() => navigate(toPage)} className="header__left" />}

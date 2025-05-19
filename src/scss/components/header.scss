@@ -1,6 +1,6 @@
 .header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
     justify-items: center;
     padding: 1rem;
@@ -9,6 +9,8 @@
         grid-column: 2;
         font-size: 1.25em;
         text-transform: capitalize;
+        font-weight: 560;
+        text-align: center;
     }
 
     &__left {
