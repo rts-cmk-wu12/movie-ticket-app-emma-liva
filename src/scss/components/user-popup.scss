@@ -1,0 +1,37 @@
+@use '../placeholders/root.scss';
+
+.welcome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: root.$primary-black;
+    padding: 1rem;
+    transition: 400ms ease-out;
+
+    &.active {
+        transform: translateY(0%);
+    }
+
+    &__text {
+        font-size: .87em;
+        color: root.$typeography-light-gray;
+
+        &--user {
+            display: block;
+            font-size: 1.25em;
+            color: root.$typeography-white;
+        }
+    }
+
+    &__pfp {
+        width: 3rem;
+        height: 3rem;
+        object-fit: cover;
+        border-radius: .5rem;
+    }
+}
