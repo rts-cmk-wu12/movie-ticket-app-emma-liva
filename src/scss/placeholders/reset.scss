@@ -1,3 +1,5 @@
+@use "./root.scss";
+
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +8,7 @@
 
 html {
     font-weight: 300;
+    color: root.$typeography-white;
 }
 
 a {
@@ -18,4 +21,8 @@ input::placeholder {
 
 p + p {
     margin-top: 1lh;
+}
+
+body{
+    background-color: root.$primary-black;
 }

@@ -1,0 +1,9 @@
+
+.explore{
+    &__top-movies{
+        &__list{
+            display: flex;
+            overflow: scroll;
+        }
+    }
+}
