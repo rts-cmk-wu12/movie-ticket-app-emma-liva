@@ -1,4 +1,5 @@
 @use "../placeholders/root.scss";
+@use "../placeholders/mixin.scss";
 
 .explore{
     display: flex;
@@ -8,6 +9,8 @@
 
     &__section{
        
+
+
         &__header{
             display: flex;
             justify-content: space-between;
@@ -24,11 +27,9 @@
             padding-right: 2rem;
         }
         &__list{
-            display: flex;
-            overflow-x: scroll;
             gap: 2rem;
-            scroll-snap-type: x mandatory;
             padding-left: 2rem;
+            @include mixin.slider();
             
             
             img{
@@ -40,8 +41,6 @@
             }
             
             &__item{
-                scroll-snap-align: center;            
-
                 ul{
                     display: flex;
                     flex-wrap: wrap;

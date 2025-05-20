@@ -21,10 +21,6 @@ input::placeholder {
     font-family: inherit;
 }
 
-p + p {
-    margin-top: 1lh;
-}
-
 body{
     background-color: root.$primary-black;
     overflow-x: hidden;

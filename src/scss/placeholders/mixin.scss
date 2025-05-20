@@ -1,3 +1,5 @@
+@use "root";
+
 @mixin slider() {
     display: flex;
     overflow-x: scroll;
@@ -7,3 +9,12 @@
         scroll-snap-align: center;
     }
 }
+
+@mixin buttonBlue(){
+    background-color: root.$accent-blue;
+    color: root.$typeography-white;
+    border-radius: .5rem;
+    padding-block: 1rem;
+    border: none;
+
+} 
