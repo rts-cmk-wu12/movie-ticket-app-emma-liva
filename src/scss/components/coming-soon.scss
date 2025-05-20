@@ -18,6 +18,11 @@
                 object-fit: cover;
                 border-radius: .5rem;
             }
+
+            &-title {
+                font-size: 1.25em;
+                font-weight: 500;
+            }
         }
     }
 }

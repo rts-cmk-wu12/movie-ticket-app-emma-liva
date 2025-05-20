@@ -1,6 +1,6 @@
 @mixin slider() {
     display: flex;
-    overflow-x: x;
+    overflow-x: scroll;
     scroll-snap-type: x mandatory;
 
     &__item {
