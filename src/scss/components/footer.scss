@@ -1,0 +1,22 @@
+@use '../placeholders/root.scss';
+
+.footer {
+    background-color: root.$primary-black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.5rem;
+
+    &-menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style-type: none;
+
+        &__icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    }
+}
