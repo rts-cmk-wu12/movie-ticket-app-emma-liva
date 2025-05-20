@@ -1,0 +1,37 @@
+@use '../placeholders/root.scss';
+
+.seats {
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: .5rem .3rem;
+
+        &--long {
+            grid-template-columns: repeat(8, 1fr);
+            margin-block: .5rem;
+        }
+    }
+
+    &__btn {
+        width: 1.875rem;
+        height: 1.875rem;
+        border-radius: .6rem;
+        background: none;
+        border: 1px solid root.$primary-gray;
+        transition: 200ms;
+
+        &:hover {
+            background-color: root.$primary-gray;
+        }
+
+        &.saved {
+            background-color: root.$accent-blue;
+            border-color: root.$accent-blue;
+        }
+        
+        &:disabled {
+            background-color: root.$accent-red;
+            border-color: root.$accent-red;
+        }
+    }
+}
