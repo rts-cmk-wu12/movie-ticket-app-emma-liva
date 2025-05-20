@@ -32,7 +32,37 @@ Formålet med opgaven er at:
 
 ---
 
-# 🌟 Ekstra Opgaver:
+## 🎊 Ændringer i designet
+
+"Welcome Back" boksen på home er ændret til en popup, der forsvinder efter 3 sekunder.
+- Dette gjorde vi det ikke passede resten af sitet's design og forsiden ingen main heading havde. En main heading er nu addet der kan ses når popup'en er forsvundet igen. Vi valgte at navngive siden TheMoviez, da den intet navn havdet.
+
+Return knappen på explore siden er fjernet.
+- Dette gjorde vi da det ikke gav meningen ifølge page navigation.
+
+Genre visning på explore siden er ændret til at vise flere og have en baggrund.
+- Dette gjorde vi da det ikke gav mening kun af vise en genre og at tilføje en baggrund gjorde dem lette af adskille.
+
+Film længden på detalje siden er rygget over genres og deres baggrund fjernet.
+- Dette gjorde vi fordi tiden lignede for meget genres.
+
+Poster billedet på detalje siden er centreret og der er kun ét.
+- Dette gjorde vi da det ingen mening gav' at have flere billeder at scroll i mellem.
+
+Udgivelses dato er tilføjet ved siden af film længde.
+- Dette gjorde vi da det er muligt at se detalje siden for film der endnu ikke udgivet.
+
+Fjernet tal og dato for hver liste item på saved plans.
+- Dette gjorde vi da det var mere forvirrende end det gavnede.
+
+Fjernet muligheden for at book billeter direkte i saved plans.
+- Dette gjorde vi da det var en dårligere måde at købe billet, da man ikke kunne se sæder.
+
+Opdelt hver liste item i saved plans med en blå divider.
+- Dette gjorde vi for at gøre det nemmere at se hvornår en ny film kom.
+---
+
+## 🌟 Ekstra Opgaver:
 
 - **Opret bruger**: En formular hvor brugeren kan registrere sig med navn, e-mail og adgangskode.
 - **Log ind**: En login-side hvor brugeren kan logge ind med e-mail og adgangskode.
