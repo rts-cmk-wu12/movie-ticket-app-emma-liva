@@ -1,5 +1,7 @@
 @use './placeholders/reset.scss';
 
 @use './pages/explore.scss';
+@use './pages/details.scss';
 
-@use './components/changeContent.scss'
+@use './components/changeContent.scss';
+@use './components/stars.scss';

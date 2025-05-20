@@ -22,12 +22,15 @@
             background-color: root.$tertiary-black;
             border: none;
             color: root.$typeography-gray;
+            transition: all 0.3s ease-in-out;
         }
         
         button.active{
             border: none;
             background-color: root.$accent-blue;
             color: root.$typeography-white;
+            transition: all 0.3s ease-in-out;
+
         }
     }
 }
