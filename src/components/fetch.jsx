@@ -15,7 +15,7 @@ function Fetch({ fetchUrl, setData }) {
             const response = await fetch(fetchUrl, fetchOptions);
             const data = await response.json();
 
-            setData(data.results);
+            setData(data);
         }
 
         fetchData();
