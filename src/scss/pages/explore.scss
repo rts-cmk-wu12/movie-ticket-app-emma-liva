@@ -1,53 +1,56 @@
 @use "../placeholders/root.scss";
 @use "../placeholders/mixin.scss";
 
-.explore{
+.explore {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    
-
-    &__section{
-       
 
 
-        &__header{
+    &__section {
+
+
+
+        &__heading {
             display: flex;
             justify-content: space-between;
-            padding-inline:  2rem;
+            padding-inline: 1.5rem;
 
-            button{
+            button {
                 font-size: 1.2em;
                 border: none;
                 background-color: root.$primary-black;
                 color: root.$typeography-gray;
             }
         }
-        &__list:last-child{
-            padding-right: 2rem;
+
+        &__list:last-child {
+            padding-right: 1.5rem;
         }
-        &__list{
+
+        &__list {
             gap: 2rem;
-            padding-left: 2rem;
+            padding-left: 1.5rem;
             @include mixin.slider();
-            
-            
-            img{
+
+
+            img {
                 width: auto;
                 height: 50vh;
                 border-radius: 2rem;
                 margin-block: 1rem;
-                
+
             }
-            
-            &__item{
-                ul{
+
+            &__item {
+                ul {
                     display: flex;
                     flex-wrap: wrap;
                     gap: .5rem;
                     list-style: none;
                     margin-top: .5rem;
-                    li{
+
+                    li {
                         background-color: root.$tertiary-black;
                         padding: .2rem .3rem;
                         border-radius: 1rem;
@@ -59,44 +62,50 @@
     }
 }
 
-    .upcoming__section{
-        h2{
-            margin-left: 2rem;
-        }
-        &__list{
-            &__item{
+.upcoming__section {
+    h2 {
+        margin-left: 1.5rem;
+    }
+
+    &__list {
+        &__item {
             display: flex;
             align-items: center;
             margin-inline: 2rem;
-                img{
-                    width: 25vw;
-                    height: auto;
-                    border-radius: 1rem;
-                    margin-block: 1rem;
-                    margin-right: .5rem;
-                }
-                p, span{
-                    font-weight: 500;
-                }
-                &__info{
-                    display: flex;
-                    flex-direction: column;
-                    
-                ul{
+
+            img {
+                width: 25vw;
+                height: auto;
+                border-radius: 1rem;
+                margin-block: 1rem;
+                margin-right: .5rem;
+            }
+
+            p,
+            span {
+                font-weight: 500;
+            }
+
+            &__info {
+                display: flex;
+                flex-direction: column;
+
+                ul {
                     display: flex;
                     flex-wrap: wrap;
                     gap: .5rem;
                     list-style: none;
                     margin-top: .5rem;
-                    li{
+
+                    li {
                         background-color: root.$tertiary-black;
                         padding: .2rem .3rem;
                         border-radius: 1rem;
 
                     }
                 }
-                }
             }
-
         }
+
     }
+}

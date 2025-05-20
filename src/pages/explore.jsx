@@ -30,14 +30,14 @@ function Explore() {
             
                 <div className="explore" style={{ display: activeTab === 'nowShowing' ? 'block' : 'none' }}>
                     <section className="explore__section">
-                        <div className="explore__section__header">
+                        <div className="explore__section__heading">
                             <h2>Top Movies</h2>
                             <button type="button">See more</button>
                         </div>
                         <StarRating />
                     </section>
                     <section className="explore__section">
-                        <div className="explore__section__header">
+                        <div className="explore__section__heading">
                             <h2>Recommended</h2>
                             <button type="button">See more</button>
                         </div>

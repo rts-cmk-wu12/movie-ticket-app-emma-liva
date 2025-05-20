@@ -10,19 +10,21 @@
     &__navigation{
         display: flex;
         gap: 2rem;
-        width: 80vw;
+        margin-inline: 1.5rem;
+        width: 100%;
         padding: 1rem;
         background-color: root.$tertiary-black;
         border-radius: .5rem;
 
         button{
-            padding: .5rem 1rem;
+            padding: 1rem 1rem;
             width: 50%;
             border-radius: .5rem;
             background-color: root.$tertiary-black;
             border: none;
             color: root.$typeography-gray;
             transition: all 0.3s ease-in-out;
+
         }
         
         button.active{
