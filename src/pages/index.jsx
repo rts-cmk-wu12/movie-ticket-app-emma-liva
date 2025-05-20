@@ -5,6 +5,7 @@ import Fetch from "../components/fetch";
 import Header from "../components/header";
 import Search from "../components/search";
 import '../scss/pages/home.scss';
+import Footer from "../components/footer";
 
 function HomePage() {
     const [comingSoon, setComingSoon] = useState([]);
@@ -96,6 +97,7 @@ function HomePage() {
                     </div>
                 </section>
             </main>
+            <Footer current='home' />
         </>
     );
 }
