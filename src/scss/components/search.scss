@@ -20,7 +20,9 @@
         &-input {
             background: none;
             border: none;
-            width: 12.4rem;
+            width: 14.8rem;
+            color: root.$typeography-light-gray;
+            font-size: 1em;
 
             &::placeholder {
                 color: root.$typeography-gray;
