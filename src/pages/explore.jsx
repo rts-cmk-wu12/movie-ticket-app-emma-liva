@@ -1,14 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import Fetch from "../components/fetch";
 import Header from "../components/header";
+import Footer from "../components/footer";
 import Genre from "../components/Genre";
 import ChangeContent from "../components/changeContent";
 import StarRating from "../components/starRating";
-import { Link } from "react-router";
-import Footer from "../components/footer";
 
 function Explore() {
-
     const [recommendedMovies, setRecommendedMovies] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
     const [activeTab, setActiveTab] = useState('nowShowing'); // Default to Now Showing
@@ -25,10 +24,9 @@ function Explore() {
                 search={true}
             />
             <main>
-                <ChangeContent 
+                <ChangeContent
                     onTabChange={handleTabChange}
                 />
-            
                 <div className="explore" style={{ display: activeTab === 'nowShowing' ? 'block' : 'none' }}>
                     <section className="explore__section">
                         <div className="explore__section__heading">
@@ -59,9 +57,8 @@ function Explore() {
                         </div>
                     </section>
                 </div>
-                
-                <section 
-                    className="upcoming__section" 
+                <section
+                    className="upcoming__section"
                     style={{ display: activeTab === 'upcoming' ? 'block' : 'none' }}
                 >
                     <h2>Upcoming</h2>
@@ -85,7 +82,7 @@ function Explore() {
                     </div>
                 </section>
             </main>
-            <Footer current="explore"/>
+            <Footer current="explore" />
         </>
     );
 }

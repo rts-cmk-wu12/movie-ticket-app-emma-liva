@@ -1,11 +1,9 @@
 @use "../placeholders/root.scss";
 
-
 .content{
     display: flex;
     justify-content: center;
     margin-block: 1rem;
-    
     
     &__navigation{
         display: flex;
@@ -24,7 +22,6 @@
             border: none;
             color: root.$typeography-gray;
             transition: all 0.3s ease-in-out;
-
         }
         
         button.active{

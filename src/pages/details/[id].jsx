@@ -1,23 +1,17 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router";
+import { FaStar } from "react-icons/fa";
 import Fetch from "../../components/fetch";
 import Header from "../../components/header";
-import { FaStar } from "react-icons/fa";
-
-
-
 
 function DetailsPage() {
     const [details, setDetails] = useState({})
     const { id } = useParams();
 
     const director = details.credits?.crew?.find(crew => crew.job === 'Director');
-    console.log(details);
-
     const runTimeInHours = details.runtime / 60;
     const hours = Math.floor(runTimeInHours);
     const minutes = Math.round((runTimeInHours - hours) * 60);
-
 
     return (
         <>
@@ -36,7 +30,7 @@ function DetailsPage() {
                     <div className="details__info">
                         <p className="details__info__director">Director: {director?.name}</p>
                         <p className="details__info-divide">|</p>
-                        <p><FaStar className="star"/> {details.vote_average}</p>
+                        <p><FaStar className="star" /> {details.vote_average}</p>
                     </div>
                     <div className="details__info">
                         <p>{`${hours}h ${minutes}m`}</p>
@@ -54,7 +48,6 @@ function DetailsPage() {
                     <Link to={`/selectSeats`} ><button>Book Ticket</button></Link>
                 </div>
             </main>
-
         </>
     );
 }

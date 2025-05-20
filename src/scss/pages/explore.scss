@@ -6,11 +6,7 @@
     flex-direction: column;
     gap: 2rem;
 
-
     &__section {
-
-
-
         &__heading {
             display: flex;
             justify-content: space-between;
@@ -30,29 +26,28 @@
             }
         }
 
-        &__list:last-child {
-            padding-right: 1.5rem;
-        }
-
         &__list {
             gap: 2rem;
             padding-left: 1.5rem;
             @include mixin.slider();
 
+            &:last-child {
+                padding-right: 1.5rem;
+            }
 
             img {
                 width: auto;
                 height: 50vh;
                 border-radius: 2rem;
                 margin-block: 1rem;
-
             }
 
             &__item {
-                h3{
+                h3 {
                     font-size: 1em;
                     font-weight: 500;
                 }
+
                 ul {
                     display: flex;
                     flex-wrap: wrap;
@@ -81,11 +76,12 @@
     }
 
     &__list {
-        
-        &__noResults{
+
+        &__noResults {
             margin-inline: 1.5rem;
             margin-top: 1rem;
         }
+
         &__item {
             display: flex;
             align-items: center;
@@ -124,6 +120,5 @@
                 }
             }
         }
-
     }
 }
