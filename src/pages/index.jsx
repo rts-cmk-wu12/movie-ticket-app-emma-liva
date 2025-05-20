@@ -3,15 +3,37 @@ import { FaLocationDot, FaStar } from "react-icons/fa6";
 import { Link } from "react-router";
 import Fetch from "../components/fetch";
 import Header from "../components/header";
+import Footer from "../components/footer";
 import Search from "../components/search";
 import '../scss/pages/home.scss';
-import Footer from "../components/footer";
 
 function HomePage() {
     const [comingSoon, setComingSoon] = useState([]);
     const [cinemas, setCinemas] = useState([]);
     const [processedCinemas, setProcessedCinemas] = useState([]);
     const [popup, setPopup] = useState('welcome');
+
+    // async function createList() {
+    //     const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+    //     const FETCH_URL = 'https://api.themoviedb.org/3/list';
+    //     const fetchOptions = {
+    //         method: "POST",
+    //         headers: {
+    //             accept: "application/json",
+    //             Authorization: `Bearer ${API_KEY}`
+    //         },
+    //         body: JSON.stringify({
+    //             name: 'Saved Plans',
+    //             description: 'Saved movies',
+    //             language: 'en'
+    //         })
+    //     }
+
+    //     const response = await fetch(FETCH_URL, fetchOptions);
+    //     await response.json();
+    // }
+
+    // createList();
 
     useEffect(() => {
         setPopup('welcome active');
@@ -29,7 +51,7 @@ function HomePage() {
             const ratingMax = 5;
             const ratingMin = 3;
 
-            const cinemasWithDetails = cinemas.results.slice(0,10).map(cinema => ({
+            const cinemasWithDetails = cinemas.results.slice(0, 10).map(cinema => ({
                 ...cinema,
                 distance: +(Math.random() * (max - min) + min).toFixed(1),
                 closingHour: Math.floor(Math.random() * (hourMax - hourMin + 1)) + hourMin,

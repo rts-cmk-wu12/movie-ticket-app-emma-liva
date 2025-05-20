@@ -9,13 +9,15 @@
         font-weight: 500;
         margin-inline: 1.5rem;
     }
-    &__slider:last-child {
-        padding-right: 1.5rem;
-    }
+
     &__slider {
         gap: 1rem;
         padding-left: 1.5rem;
         @include mixin.slider();
+
+        &:last-child {
+            padding-right: 1.5rem;
+        }
 
         &__item {
             &-poster {
