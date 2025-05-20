@@ -1,0 +1,69 @@
+@use '../placeholders/root.scss';
+
+.cinemas {
+    margin-top: 2rem;
+
+    &__heading {
+        margin-bottom: .5rem;
+        font-size: 1.25em;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        &-item {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            &__logo {
+                width: 4.75rem;
+                height: 4.75rem;
+                object-fit: cover;
+                border-radius: .8rem;
+            }
+
+            &__distance {
+                font-size: .75em;
+                color: root.$typeography-blue;
+                display: flex;
+                gap: .2rem;
+
+                svg {
+                    color: root.$icon-gray;
+                    width: .9rem;
+                    height: .9rem;
+                }
+            }
+
+            &__title {
+                font-weight: 500;
+                font-size: 1em;
+            }
+
+            &__close {
+                font-size: .75em;
+                color: root.$typeography-light-gray;
+                font-weight: 300;
+            }
+
+            &__rating {
+                display: flex;
+                gap: .2rem;
+                margin-left: auto;
+                font-size: .87em;
+                color: root.$typeography-light-gray;
+                font-weight: 300;
+
+                svg {
+                    width: 1rem;
+                    height: 1rem;
+                }
+            }
+        }
+    }
+}

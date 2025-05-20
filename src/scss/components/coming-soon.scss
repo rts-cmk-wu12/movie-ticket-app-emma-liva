@@ -1,7 +1,9 @@
 @use '../placeholders/mixin.scss';
+@use '../placeholders/root.scss';
 
 .coming-soon {
     &__heading {
+        margin-bottom: .5rem;
         font-size: 1.25em;
         text-transform: capitalize;
         font-weight: 500;
@@ -22,6 +24,12 @@
             &-title {
                 font-size: 1.25em;
                 font-weight: 500;
+                margin-block: .2rem;
+            }
+
+            &-release {
+                font-size: .87em;
+                color: root.$typeography-light-gray;
             }
         }
     }
