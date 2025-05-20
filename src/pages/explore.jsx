@@ -5,6 +5,7 @@ import Genre from "../components/Genre";
 import ChangeContent from "../components/changeContent";
 import StarRating from "../components/starRating";
 import { Link } from "react-router";
+import Footer from "../components/footer";
 
 function Explore() {
 
@@ -84,6 +85,7 @@ function Explore() {
                     </div>
                 </section>
             </main>
+            <Footer current="explore"/>
         </>
     );
 }

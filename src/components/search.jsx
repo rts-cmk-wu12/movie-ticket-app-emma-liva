@@ -9,7 +9,7 @@ function Search() {
         e.preventDefault();
         const searchQuery = e.target.searchbar.value.trim();
         if (searchQuery) {
-            navigate(`/search?query=${encodeURIComponent(searchQuery)}`); // Search page doesn't exist yet
+            navigate(`/search/${encodeURIComponent(searchQuery)}`); // Search page doesn't exist yet
         }
     }
 

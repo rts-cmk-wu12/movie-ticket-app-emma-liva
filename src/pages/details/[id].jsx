@@ -34,18 +34,22 @@ function DetailsPage() {
                     <img src={`https://image.tmdb.org/t/p/w500${details.poster_path}`} alt={details.title} />
                     <h2>{details.title}</h2>
                     <div className="details__info">
-                        <p>Director: {director?.name}</p>
-                        <p className="details__info-gray">|</p>
+                        <p className="details__info__director">Director: {director?.name}</p>
+                        <p className="details__info-divide">|</p>
                         <p><FaStar className="star"/> {details.vote_average}</p>
                     </div>
-                    <p>{`${hours}h ${minutes}m`}</p>
+                    <div className="details__info">
+                        <p>{`${hours}h ${minutes}m`}</p>
+                        <p className="details__info-divide">|</p>
+                        <p>Release Date: {details.release_date}</p>
+
+                    </div>
                     <ul className="details__genres">
                         {details.genres?.map((genre, index) => (
                             <li key={genre.id || index}>{genre.name}</li>
                         ))}
                     </ul>
-                    <p>Release Date: {details.release_date}</p>
-                    <h2>Synopsis:</h2>
+                    <h2>Synopsis</h2>
                     <p>{details.overview}</p>
                     <Link to={`/selectSeats`} ><button>Book Ticket</button></Link>
                 </div>
