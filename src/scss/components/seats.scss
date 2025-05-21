@@ -1,14 +1,33 @@
 @use '../placeholders/root.scss';
 
+.screen{
+    border-top: solid 4px root.$accent-blue;
+    margin-inline: 3rem;
+    margin-block: 2rem;
+
+    height: 10rem;
+    border-radius: 50% / 20% ;
+    box-shadow: root.$accent-blue 0px 30px 25px -30px inset;
+}
+
 .seats {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -8rem;
+
+
     &__row {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        gap: .5rem .3rem;
+        justify-items: center;
+        gap: .5rem;
+        margin-bottom: 1rem;
 
         &--long {
             grid-template-columns: repeat(8, 1fr);
-            margin-block: .5rem;
+            gap: 1rem .5rem;
         }
     }
 
