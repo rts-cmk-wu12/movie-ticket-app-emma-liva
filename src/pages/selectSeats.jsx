@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Header from "../components/header";
 import SeatPicker from "../components/seatPicker";
-import '../scss/pages/seats.scss';
 
 function SelectSeat() {
     const [selectedSeats, setSelectedSeats] = useState([]);
