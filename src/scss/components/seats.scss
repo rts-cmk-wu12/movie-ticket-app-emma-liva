@@ -2,9 +2,7 @@
 
 .screen{
     border-top: solid 4px root.$accent-blue;
-    margin-inline: 3rem;
-    margin-block: 2rem;
-
+    margin-inline: 1.5rem;
     height: 10rem;
     border-radius: 50% / 20% ;
     box-shadow: root.$accent-blue 0px 30px 25px -30px inset;
@@ -15,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -8rem;
+    margin-top: -5rem;
 
 
     &__row {
