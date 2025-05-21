@@ -4,7 +4,6 @@ import SeatPicker from "../components/seatPicker";
 import Fetch from "../components/fetch";
 import RandomDate from "../components/random-date";
 import RandomTime from "../components/random-time";
-import '../scss/pages/seats.scss';
 
 function SelectSeat() {
     const [selectedSeats, setSelectedSeats] = useState([]);
