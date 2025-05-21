@@ -1,15 +1,16 @@
-import Popup from "../components/popUp";
+import ETicket from "../components/eTicket";
+
 
 
 
 function Tester() {
-    return (  
-        
+
+    return(
         <>
-        <Popup/>
-    
+            <ETicket />
         </>
-    );
+
+    )
 }
 
 export default Tester;
