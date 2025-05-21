@@ -45,7 +45,7 @@ function DetailsPage() {
                     </ul>
                     <h2>Synopsis</h2>
                     <p>{details.overview}</p>
-                    <Link to={`/selectSeats`} ><button>Book Ticket</button></Link>
+                    <Link to={`/select/${details.title}`} ><button>Book Ticket</button></Link>
                 </div>
             </main>
         </>
