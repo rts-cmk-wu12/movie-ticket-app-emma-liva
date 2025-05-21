@@ -86,6 +86,7 @@ function SelectSeat() {
                             <RandomTime time={createRandomTime()} />
                         </select>
                     </div>
+                    <button type="submit" className="select-seats__btn">checkout</button>
                 </form>
                 <SeatPicker selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} />
                 <div className="showcase">
@@ -93,7 +94,6 @@ function SelectSeat() {
                     <p className="showcase__text"><span className="showcase__dot showcase__dot--reserved"></span>reserved</p>
                     <p className="showcase__text"><span className="showcase__dot showcase__dot--available"></span>available</p>
                 </div>
-                <button type="submit" className="select-seats__btn">checkout</button>
             </main>
         </>
     );

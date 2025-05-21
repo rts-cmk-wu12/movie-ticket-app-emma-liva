@@ -32,8 +32,11 @@
 
         &__btn {
             @include mixin.buttonBlue();
-            width: 100%;
             text-transform: capitalize;
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
         }
     }
 }
