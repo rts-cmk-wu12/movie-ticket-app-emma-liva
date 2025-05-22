@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MdSimCardDownload } from "react-icons/md";
 import Header from "../components/header";
 import Popup from "../components/popup";
-import ETicket from "../components/tickets";
+import ETicket from "../components/eTicket";
 
 function ETicketPage() {
     const [showPopup, setShowPopup] = useState(false);
