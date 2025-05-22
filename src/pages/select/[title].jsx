@@ -1,13 +1,17 @@
 import { useState } from "react";
-import Header from "../components/header";
-import SeatPicker from "../components/seatPicker";
-import Fetch from "../components/fetch";
-import RandomDate from "../components/random-date";
-import RandomTime from "../components/random-time";
+import { useNavigate, useParams } from "react-router";
+import Header from "../../components/header";
+import Fetch from "../../components/fetch";
+import RandomDate from "../../components/random-date";
+import RandomTime from "../../components/random-time";
+import SeatPicker from "../../components/seatPicker";
 
 function SelectSeat() {
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [cinemas, setCinemas] = useState([]);
+    const [error, setError] = useState(false);
+    const { title } = useParams();
+    const navigate = useNavigate();
 
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth() + 1;
@@ -45,6 +49,28 @@ function SelectSeat() {
         return Math.floor(Math.random() * (hourMax - hourMin + 1)) + hourMin;
     }
 
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+
+        if (selectedSeats.length < 1) {
+            setError(true);
+            return;
+        }
+
+        const formData = new FormData(form);
+        const formDataObject = Object.fromEntries(formData.entries());
+
+        navigate(`/checkout/${selectedSeats.length}`);
+        setError(false);
+
+        await fetch(`${import.meta.env.VITE_URL}/api/tickets/add`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ...formDataObject, selectedSeats, title }),
+        });
+    }
+
     return (
         <>
             <Header
@@ -58,7 +84,7 @@ function SelectSeat() {
                     fetchUrl='https://api.themoviedb.org/3/watch/providers/movie?language=en-US'
                     setData={setCinemas}
                 />
-                <form className="select-seats">
+                <form className="select-seats" onSubmit={handleSubmit}>
                     <div className="select-seats__cinema">
                         <label htmlFor="cinema" className="select-seats__label">Cinema</label>
                         <select name="cinema" id="cinema" className="select-seats__select">
@@ -94,6 +120,7 @@ function SelectSeat() {
                     <p className="showcase__text"><span className="showcase__dot showcase__dot--reserved"></span>reserved</p>
                     <p className="showcase__text"><span className="showcase__dot showcase__dot--available"></span>available</p>
                 </div>
+                {error && <p className="error">Please select at least one seat.</p>}
             </main>
         </>
     );
