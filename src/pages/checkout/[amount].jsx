@@ -118,7 +118,7 @@ function CheckoutPage() {
                     title='Your payment was successful'
                     description='Refund will only be given if the ticket is cancelled 1 hour before the movie starts.'
                     buttonText='See E-Ticket'
-                    link='/'
+                    link='/e-ticket'
                     icon={<RiShieldCheckFill />}
                     show={showPopup}
                 />
