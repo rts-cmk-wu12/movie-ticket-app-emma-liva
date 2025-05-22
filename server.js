@@ -12,8 +12,6 @@ async function connectToMongoDB() {
       ssl: true,
       tls: true,
       tlsAllowInvalidCertificates: false,
-      useNewUrlParser: true,
-      useUnifiedTopology: true
     });
     
     await client.connect();
