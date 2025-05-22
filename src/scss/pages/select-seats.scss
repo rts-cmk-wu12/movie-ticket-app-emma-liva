@@ -95,3 +95,10 @@
     font-size: .75em;
     text-align: center;
 }
+
+.login__sign-up{
+    &--link{
+        text-decoration: underline;
+        color: root.$typeography-blue;
+    }
+}
