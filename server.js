@@ -95,8 +95,40 @@ async function startServer() {
       const result = await database.collection('plans').deleteOne({ _id: new ObjectId(id) });
       response.status(201).json(result);
     } catch (error) {
-      console.error("Error adding movie to saved plans:", error);
-      response.status(500).json({ error: "Failed to add movie to saved plans" });
+      console.error("Error removing movie to saved plans:", error);
+      response.status(500).json({ error: "Failed to remove movie to saved plans" });
+    }
+  });
+
+  app.get('/api/users', async (_, response) => {
+    try {
+      const data = database.collection('users').find().sort({ _id: -1 });
+      response.json(await data.toArray());
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      response.status(500).json({ error: "Failed to fetch users" });
+    }
+  });
+
+  app.post('/api/user/add', async (request, response) => {
+    try {
+      const data = request.body;
+      const result = await database.collection('users').insertOne(data);
+      response.status(201).json(result);
+    } catch (error) {
+      console.error("Error adding user to database:", error);
+      response.status(500).json({ error: "Failed to add user to database" });
+    }
+  });
+
+  app.delete('/api/users/:id', async (request, response) => {
+    try {
+      const { id } = request.params;
+      const result = await database.collection('users').deleteOne({ _id: new ObjectId(id) });
+      response.status(201).json(result);
+    } catch (error) {
+      console.error("Error removing user from database:", error);
+      response.status(500).json({ error: "Failed to remove user from database" });
     }
   });
 
