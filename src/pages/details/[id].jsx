@@ -13,11 +13,21 @@ function DetailsPage() {
     const hours = Math.floor(runTimeInHours);
     const minutes = Math.round((runTimeInHours - hours) * 60);
 
+    const bookmarkData = {
+        id: details.id,
+        title: details.title,
+        poster: details.poster_path,
+        rating: details.vote_average,
+        runtime: `${hours}h ${minutes}m`,
+        genres: details.genres?.map(genre => genre.name).join(', '),
+    }
+
     return (
         <>
             <Header
                 title="Details movie"
                 bookmark={true}
+                bookmarkData={bookmarkData}
             />
             <main>
                 <Fetch
