@@ -28,6 +28,13 @@
             padding: .7rem 1rem;
             color: root.$typeography-light-gray;
             font-size: .75em;
+
+            &--error {
+                font-size: .75em;
+                color: root.$typeography-red;
+                text-align: center;
+                margin-top: .5rem;
+            }
         }
 
         &__btn {
@@ -74,4 +81,10 @@
             border: 1px solid root.$primary-gray;
         }
     }
+}
+
+.error {
+    color: root.$typeography-red;
+    font-size: .75em;
+    text-align: center;
 }

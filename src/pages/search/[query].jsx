@@ -6,37 +6,9 @@ import Genre from "../../components/Genre";
 import Search from "../../components/search";
 import Footer from "../../components/footer";
 
-
-
-
 function SearchPage() {
     const [search, setSearch] = useState([]);
     const { query } = useParams();
-
-    /*     useEffect(()=>{
-            async function fetchQueries() {
-                const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-                const FETCH_URL = `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`;
-                const fetchOptions = {
-                    method: "GET",
-                    headers: {
-                        accept: "application/json",
-                        Authorization: `Bearer ${API_KEY}`
-                    }
-                }
-    
-                const response = await fetch(FETCH_URL, fetchOptions);
-                const data = await response.json();
-    
-                setSearch(data);
-                
-            }
-    
-            fetchQueries();
-        }, [query]) */
-
-
-
 
     return (
         <>
