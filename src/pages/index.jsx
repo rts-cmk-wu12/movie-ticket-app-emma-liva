@@ -12,28 +12,6 @@ function HomePage() {
     const [processedCinemas, setProcessedCinemas] = useState([]);
     const [popup, setPopup] = useState('welcome');
 
-    // async function createList() {
-    //     const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-    //     const FETCH_URL = 'https://api.themoviedb.org/3/list';
-    //     const fetchOptions = {
-    //         method: "POST",
-    //         headers: {
-    //             accept: "application/json",
-    //             Authorization: `Bearer ${API_KEY}`
-    //         },
-    //         body: JSON.stringify({
-    //             name: 'Saved Plans',
-    //             description: 'Saved movies',
-    //             language: 'en'
-    //         })
-    //     }
-
-    //     const response = await fetch(FETCH_URL, fetchOptions);
-    //     await response.json();
-    // }
-
-    // createList();
-
     useEffect(() => {
         setPopup('welcome active');
         setTimeout(() => {
