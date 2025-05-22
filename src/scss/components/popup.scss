@@ -3,6 +3,7 @@
 
 .popupOverlay {
     transition: 400ms ease-in-out;
+    visibility: hidden;
 
     &.active {
         background-color: root.$primary-black-transparent ;
@@ -12,14 +13,16 @@
         width: 100vw;
         height: 100vh;
         z-index: 1;
+        visibility: visible;
     }
 }
 
 .popup {
-    position: relative;
-    position: absolute;
+    visibility: hidden;
+    position: fixed;
     bottom: 0;
     width: 100vw;
+    max-height: 80vh;
 
     transform: translateY(150%);
     transition: 400ms ease-in-out;
@@ -36,6 +39,7 @@
 
     &.active {
         transform: translateY(0%);
+        visibility: visible;
     }
 
 

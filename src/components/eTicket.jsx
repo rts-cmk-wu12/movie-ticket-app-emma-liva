@@ -13,6 +13,7 @@ function ETicket() {
     return (
         <>
             <FetchMongo
+                fetchUrl="/api/tickets"
                 setData={setTicketData}
             />
 
