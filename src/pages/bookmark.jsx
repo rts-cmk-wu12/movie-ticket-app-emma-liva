@@ -3,11 +3,24 @@ import { FaStar, FaTrash } from "react-icons/fa6";
 import { Link } from "react-router";
 import FetchMongo from "../components/fetchMongo";
 import Header from "../components/header";
+import Footer from "../components/footer";
 
 function SavedPlansPage() {
     const [savedPlans, setSavedPlans] = useState([]);
 
-    console.log(savedPlans);
+    async function removeFromSavedPlan(id) {
+        const response = await fetch(`${import.meta.env.VITE_URL}/api/plans/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        if (response.ok) {
+            setSavedPlans(savedPlans.filter(movie => movie._id !== id));
+        } else {
+            console.error('Failed to delete the plan');
+        }
+    }
 
     return (
         <>
@@ -15,7 +28,10 @@ function SavedPlansPage() {
                 fetchUrl='/api/plans'
                 setData={setSavedPlans}
             />
-            <Header title='saved plans' />
+            <Header
+                title='saved plans'
+                navigateReturn={false}
+            />
             <main className="saved-plans">
                 {savedPlans.length > 0 ? (
                     savedPlans.map(movie => (
@@ -26,7 +42,7 @@ function SavedPlansPage() {
                                     alt={`${movie.title} poster`}
                                     className="saved-plans__item__poster"
                                 />
-                                <div className="saved-plans__item-info">
+                                <div>
                                     <p className="saved-plans__item__text saved-plans__item__text--genres">{movie.genres}</p>
                                     <h2 className="saved-plans__item__title">{movie.title}</h2>
                                     <p className="saved-plans__item__text">{movie.runtime}</p>
@@ -34,13 +50,20 @@ function SavedPlansPage() {
                                 <p className="saved-plans__item__star"><FaStar className="star" />{movie.rating}</p>
                             </div>
                             <div className="saved-plans__item-functions">
-                                <Link to={`/select/${movie.id}`} className="saved-plans__item__btn">book ticket</Link>
-                                <button type="button" className="saved-plans__item__trash"><FaTrash color="#FFF" /></button>
+                                <Link to={`/select/${movie.title}`} className="saved-plans__item__btn">book ticket</Link>
+                                <button
+                                    type="button"
+                                    onClick={() => removeFromSavedPlan(movie._id)}
+                                    className="saved-plans__item__trash"
+                                >
+                                    <FaTrash color="#FFF" />
+                                </button>
                             </div>
                         </div>
                     ))
                 ) : <p>No saved plans</p>}
             </main>
+            <Footer current='bookmark' />
         </>
     );
 }

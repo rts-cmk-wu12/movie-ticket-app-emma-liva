@@ -4,6 +4,13 @@
 .select {
     padding-inline: 1.5rem;
 
+    &__heading {
+        font-size: 1.25em;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: .5rem;
+    }
+
     &-seats {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
