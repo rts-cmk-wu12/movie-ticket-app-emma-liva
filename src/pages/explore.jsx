@@ -6,11 +6,13 @@ import Footer from "../components/footer";
 import Genre from "../components/Genre";
 import ChangeContent from "../components/changeContent";
 import StarRating from "../components/starRating";
+import Search from "../components/search";
 
 function Explore() {
     const [recommendedMovies, setRecommendedMovies] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
-    const [activeTab, setActiveTab] = useState('nowShowing'); // Default to Now Showing
+    const [activeTab, setActiveTab] = useState('nowShowing');
+    const [showSearch, setShowSearch] = useState(false);
 
     const handleTabChange = (tab) => {
         setActiveTab(tab);
@@ -22,7 +24,10 @@ function Explore() {
                 navigateReturn={false}
                 title="Explore movie"
                 search={true}
+                showSearch={showSearch}
+                setShowSearch={setShowSearch}
             />
+            {showSearch && <Search />}
             <main>
                 <ChangeContent
                     onTabChange={handleTabChange}

@@ -84,6 +84,7 @@ function SelectSeat() {
                     fetchUrl='https://api.themoviedb.org/3/watch/providers/movie?language=en-US'
                     setData={setCinemas}
                 />
+                <h2 className="select__heading">{title}</h2>
                 <form className="select-seats" onSubmit={handleSubmit}>
                     <div className="select-seats__cinema">
                         <label htmlFor="cinema" className="select-seats__label">Cinema</label>

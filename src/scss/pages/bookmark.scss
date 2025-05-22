@@ -1,0 +1,82 @@
+@use '../placeholders/root.scss';
+@use '../placeholders/mixin.scss';
+
+.saved-plans {
+    padding-inline: 1.5rem;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        
+        &:not(:last-child) {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid root.$accent-blue;
+            border-end-end-radius: .2rem;
+            border-end-start-radius: .2rem;
+        }
+
+        &-movie {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        &-functions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        &__poster {
+            width: 4.75rem;
+            height: 4.75rem;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
+        &__title {
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        &__text {
+            font-size: .75em;
+            color: root.$typeography-light-gray;
+
+            &--genres {
+                color: root.$typeography-blue;
+            }
+        }
+
+        &__star {
+            display: flex;
+            align-items: center;
+            gap: .2rem;
+            font-size: .87em;
+            color: root.$typeography-light-gray;
+            margin-left: auto;
+        }
+
+        &__btn {
+            @include mixin.buttonBlue();
+            text-transform: capitalize;
+            width: 100%;
+            text-align: center;
+        }
+
+        &__trash {
+            background: none;
+            border: 1px solid root.$accent-blue;
+            padding: .8rem;
+            border-radius: .5rem;
+
+            svg {
+                width: 1.3rem;
+                height: 1.3rem;
+            }
+        }
+    }
+}
