@@ -5,8 +5,27 @@ const PORT = process.env.PORT;
 const MONGO_CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING;
 
 const app = express();
-const client = new MongoClient(MONGO_CONNECTION_STRING);
-const database = client.db("themoviez");
+
+async function connectToMongoDB() {
+  try {
+    const client = new MongoClient(MONGO_CONNECTION_STRING, {
+      ssl: true,
+      tls: true,
+      tlsAllowInvalidCertificates: false,
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    
+    await client.connect();
+    console.log("Connected to MongoDB successfully");
+    return client.db("themoviez");
+  } catch (error) {
+    console.error("MongoDB Connection Error:", error);
+    process.exit(1);
+  }
+}
+
+let database;
 
 app.use((req, res, next) => {
     const allowedOrigins = [
@@ -27,30 +46,35 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-app.get('/api/tickets', async (_, response) => {
-    const data = database.collection('tickets').find().sort({ _id: -1 });
+async function startServer() {
+  database = await connectToMongoDB();
+  
+  // Define routes after database is connected
+  app.get('/api/tickets', async (_, response) => {
+    try {
+      const data = database.collection('tickets').find().sort({ _id: -1 });
+      response.json(await data.toArray());
+    } catch (error) {
+      console.error("Error fetching tickets:", error);
+      response.status(500).json({ error: "Failed to fetch tickets" });
+    }
+  });
 
-    response.json(await data.toArray());
-});
+  // Your other routes with error handling...
+  app.post('/api/tickets/add', async (request, response) => {
+    try {
+      const data = request.body;
+      const result = await database.collection('tickets').insertOne(data);
+      response.status(201).json(result);
+    } catch (error) {
+      console.error("Error adding ticket:", error);
+      response.status(500).json({ error: "Failed to add ticket" });
+    }
+  });
 
-app.post('/api/tickets/add', async (request, _) => {
-    const data = request.body;
-
-    database.collection('tickets').insertOne(data);
-});
-
-app.get('/api/plans', async (_, response) => {
-    const data = database.collection('plans').find().sort({ _id: -1 });
-
-    response.json(await data.toArray());
-});
-
-app.post('/api/plans/add', async (request, _) => {
-    const data = request.body;
-
-    database.collection('plans').insertOne(data);
-});
-
-app.listen(PORT, () => {
-    console.log(`server is running on port ${PORT}`);
-});
+  // Start the server
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+startServer().catch(console.error);

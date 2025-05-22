@@ -3,17 +3,17 @@ import FetchMongo from "./fetchMongo";
 
 function ETicket() {
     const [ticketData, setTicketData] = useState([]);
-
+    
+    
     return (
         <>
             <FetchMongo
-                fetchUrl={`${import.meta.env.VITE_URL}/api/tickets`}
                 setData={setTicketData}
             />
             
             <div className="eticket">
-                {ticketData.results?.length > 0 ? (
-                    ticketData.results?.map(ticket => (
+                {ticketData.length > 0 ? (
+                    ticketData.map(ticket => (
                         <>
                             <table key={ticket._id} className="eticket__top">
                                 <thead>

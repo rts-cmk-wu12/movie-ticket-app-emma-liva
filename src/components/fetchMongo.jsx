@@ -1,16 +1,17 @@
 import { useEffect } from "react";
 
-function FetchMongo({ fetchUrl, setData }) {
+function FetchMongo({ setData }) {
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(fetchUrl);
+            const response = await fetch(`${import.meta.env.VITE_URL}/api/tickets`);
             const data = await response.json();
 
             setData(data);
         }
 
         fetchData();
-    }, [fetchUrl]);
+    }, []);
+    return null;
 }
 
 export default FetchMongo;
