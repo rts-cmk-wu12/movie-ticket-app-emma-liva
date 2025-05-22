@@ -1,6 +1,4 @@
-import Popup from "../components/popUp";
-
-
+import Popup from "../components/popup";
 
 function Tester() {
     return (  

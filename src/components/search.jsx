@@ -1,6 +1,5 @@
 import { IoSearch } from "react-icons/io5";
 import { useNavigate } from "react-router";
-import '../scss/components/search.scss';
 
 function Search() {
     const navigate = useNavigate();

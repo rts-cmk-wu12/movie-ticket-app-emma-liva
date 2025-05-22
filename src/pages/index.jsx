@@ -5,7 +5,6 @@ import Fetch from "../components/fetch";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Search from "../components/search";
-import '../scss/pages/home.scss';
 
 function HomePage() {
     const [comingSoon, setComingSoon] = useState([]);

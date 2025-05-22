@@ -2,7 +2,6 @@ import { BsPersonFill } from "react-icons/bs";
 import { FaBookmark, FaHouse } from "react-icons/fa6";
 import { PiCompassFill } from "react-icons/pi";
 import { Link } from "react-router";
-import '../scss/components/footer.scss';
 
 function Footer({ current }) {
     return (

@@ -63,7 +63,7 @@ function SelectSeat() {
 
         navigate(`/checkout/${selectedSeats.length}`);
         setError(false);
-        
+
         await fetch(`${import.meta.env.VITE_URL}/api/tickets/add`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
