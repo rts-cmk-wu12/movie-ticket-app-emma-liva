@@ -1,10 +1,11 @@
-import ETicket from "../components/eTicket";
 
 function Tester() {
 
-    return(
+
+    return (
         <>
-            <ETicket />
+
+
         </>
 
     )

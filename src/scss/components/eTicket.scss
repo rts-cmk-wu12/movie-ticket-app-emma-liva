@@ -13,7 +13,7 @@
     &__item {
         
         &__top {
-            background-color: root.$typeography-white;
+            background-color: root.$primary-white;
             color: root.$primary-black;
             padding: 1.5rem 2rem 3rem;
             width:80vw;
@@ -50,7 +50,7 @@
             
         }
         &__bottom {
-            background-color: root.$typeography-white;
+            background-color: root.$primary-white;
             padding: 3rem 1.5rem 1rem;
             border-top: dotted 3px root.$primary-black;
             position: relative;
