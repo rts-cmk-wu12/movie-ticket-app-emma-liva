@@ -13,7 +13,7 @@ function ETicketPage() {
             <main className="e-ticket">
                 <h2 className="e-ticket__heading">instruction</h2>
                 <p className="e-ticket__text">Come to the cinema, show and scan the barcode to the space provided. Continue to comply with health protocols.</p>
-                <ETicket setShowPopup={setShowPopup} />
+                <ETicket />
                 <button type="button" className="e-ticket__btn" onClick={() => setShowPopup(true)}>download e-ticket</button>
             </main>
             <Popup

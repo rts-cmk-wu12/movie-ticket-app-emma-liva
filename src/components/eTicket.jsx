@@ -4,7 +4,7 @@ import FetchMongo from "./fetchMongo";
 function ETicket() {
     const [allTickets, setAllTickets] = useState([]);
     const [ticketData, setTicketData] = useState([]);
-  
+
     const userId = localStorage.getItem('user');
 
     useEffect(() => {
@@ -15,7 +15,7 @@ function ETicket() {
     const shortenId = (id) => {
         return id.slice(0, 7);
     }
-    
+
     function isExpiredTicket(ticketDate) {
         // Get ticket day and month
         const [ticketDay, ticketMonth] = ticketDate.split('/').map(Number);
@@ -27,7 +27,7 @@ function ETicket() {
         return (ticketMonth < currentMonth) ||
             (ticketMonth === currentMonth && ticketDay < currentDay);
     };
-    
+
     const expiredTickets = ticketData.filter(ticket => isExpiredTicket(ticket.date));
 
     async function removeExpiredTicket(id) {
@@ -41,15 +41,13 @@ function ETicket() {
             setTicketData(ticketData.filter(ticket => ticket._id !== id));
         }
     }
-    
-    
+
     useEffect(() => {
         if (expiredTickets?.length > 0) {
             expiredTickets.map(ticket => {
-                removeExpiredTicket(ticket._id);               
+                removeExpiredTicket(ticket._id);
             });
         }
-
     }, [expiredTickets]);
 
     return (
