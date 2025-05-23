@@ -26,3 +26,12 @@
     border: none;
     font-size: 1.12em;
 } 
+
+@mixin buttonRed(){
+    background-color: root.$accent-red;
+    color: root.$typeography-white;
+    border-radius: .5rem;
+    padding-block: .7rem;
+    border: none;
+    font-size: 1.12em;
+}
