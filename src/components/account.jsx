@@ -6,7 +6,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { HiMiniTicket } from "react-icons/hi2";
 import { IoLogOut } from "react-icons/io5";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import FetchMongo from "./fetchMongo";
 import ConfirmPopup from "./confirmPopup";
 
@@ -17,7 +17,7 @@ function Account({ userId }) {
 
     const navigate = useNavigate();
 
-    async function handleLogout() {
+    function handleLogout() {
         localStorage.removeItem('user');
         setShowLogoutPopup(false);
         navigate('/');
@@ -79,7 +79,7 @@ function Account({ userId }) {
                 </div>
                 <div className="profile__container">
                     <div className="profile__container__icon profile__container__icon--blue"><HiMiniTicket /></div>
-                    <p>Your Tickets</p>
+                    <Link to="/e-ticket"><p>Your Tickets</p></Link>
                     <button><IoIosArrowForward /></button>
                 </div>
                 <div className="profile__container">

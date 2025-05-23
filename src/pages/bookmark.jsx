@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaStar, FaTrash } from "react-icons/fa6";
 import { Link } from "react-router";
 import FetchMongo from "../components/fetchMongo";
@@ -6,7 +6,14 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 
 function SavedPlansPage() {
+    const [allSavedPlans, setAllSavedPlans] = useState([]);
     const [savedPlans, setSavedPlans] = useState([]);
+
+    const userId = localStorage.getItem('user');
+
+    useEffect(() => {
+        setSavedPlans(allSavedPlans?.filter(movie => movie?.owner === userId));
+    }, [allSavedPlans, userId]);
 
     async function removeFromSavedPlan(id) {
         const response = await fetch(`${import.meta.env.VITE_URL}/api/plans/${id}`, {
@@ -26,7 +33,7 @@ function SavedPlansPage() {
         <>
             <FetchMongo
                 fetchUrl='/api/plans'
-                setData={setSavedPlans}
+                setData={setAllSavedPlans}
             />
             <Header
                 title='saved plans'
@@ -61,7 +68,7 @@ function SavedPlansPage() {
                             </div>
                         </div>
                     ))
-                ) : <p>No saved plans</p>}
+                ) : <p className="saved-plans__empty">No saved plans found.<br/>Are you logged in?</p>}
             </main>
             <Footer current='bookmark' />
         </>
