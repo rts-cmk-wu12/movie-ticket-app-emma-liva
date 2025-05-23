@@ -5,13 +5,17 @@ import Fetch from "../../components/fetch";
 import RandomDate from "../../components/random-date";
 import RandomTime from "../../components/random-time";
 import SeatPicker from "../../components/seatPicker";
+import ConfirmPopup from "../../components/confirmPopup";
 
 function SelectSeat() {
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [cinemas, setCinemas] = useState([]);
     const [error, setError] = useState(false);
+    const [showCheckoutPopup, setShowCheckoutPopup] = useState(false);
     const { title } = useParams();
     const navigate = useNavigate();
+
+    const userId = localStorage.getItem('user');
 
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth() + 1;
@@ -51,25 +55,34 @@ function SelectSeat() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const form = e.target;
+        if (userId) {
+            const form = e.target;
 
-        if (selectedSeats.length < 1) {
-            setError(true);
-            return;
+            if (selectedSeats.length < 1) {
+                setError(true);
+                return;
+            }
+
+            const formData = new FormData(form);
+            const formDataObject = Object.fromEntries(formData.entries());
+
+            navigate(`/checkout/${selectedSeats.length}`);
+            setError(false);
+
+            await fetch(`${import.meta.env.VITE_URL}/api/tickets/add`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...formDataObject, selectedSeats, title, owner: userId }),
+            });
+        } else {
+            setShowCheckoutPopup(true);
         }
-
-        const formData = new FormData(form);
-        const formDataObject = Object.fromEntries(formData.entries());
-
-        navigate(`/checkout/${selectedSeats.length}`);
-        setError(false);
-
-        await fetch(`${import.meta.env.VITE_URL}/api/tickets/add`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ ...formDataObject, selectedSeats, title }),
-        });
     }
+
+    function moveToLogin() {
+        setShowCheckoutPopup(false);
+        navigate('/profile');
+    };
 
     return (
         <>
@@ -123,6 +136,14 @@ function SelectSeat() {
                 </div>
                 {error && <p className="error">Please select at least one seat.</p>}
             </main>
+            <ConfirmPopup
+                title="Not Logged In"
+                message="To use this feature, please log in."
+                confirmBtn="Login"
+                show={showCheckoutPopup}
+                onCancel={() => setShowCheckoutPopup(false)}
+                onConfirm={moveToLogin}
+            />
         </>
     );
 }

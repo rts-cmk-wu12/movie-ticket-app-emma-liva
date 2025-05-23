@@ -79,4 +79,11 @@
             }
         }
     }
+
+    &__empty {
+        text-align: center;
+        font-size: .87em;
+        color: root.$typeography-light-gray;
+        margin-top: 2rem;
+    }
 }

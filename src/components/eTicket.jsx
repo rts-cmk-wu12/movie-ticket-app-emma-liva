@@ -2,13 +2,20 @@ import { useEffect, useState } from "react";
 import FetchMongo from "./fetchMongo";
 
 function ETicket() {
+    const [allTickets, setAllTickets] = useState([]);
     const [ticketData, setTicketData] = useState([]);
+  
+    const userId = localStorage.getItem('user');
 
-    // Shorten _id to 7 characters
+    useEffect(() => {
+        setTicketData(allTickets?.filter(ticket => ticket?.owner === userId));
+    }, [allTickets, userId]);
+
+    // shorten _id to 7 characters
     const shortenId = (id) => {
         return id.slice(0, 7);
     }
-
+    
     function isExpiredTicket(ticketDate) {
         // Get ticket day and month
         const [ticketDay, ticketMonth] = ticketDate.split('/').map(Number);
@@ -49,7 +56,7 @@ function ETicket() {
         <>
             <FetchMongo
                 fetchUrl="/api/tickets"
-                setData={setTicketData}
+                setData={setAllTickets}
             />
 
             <div className="eticket">
@@ -100,9 +107,8 @@ function ETicket() {
                                 <div className="eticket__item__bottom__right"></div>
                             </div>
                         </div>
-                    )
-
-                    )) : <p> No tickets found</p>}
+                    ))
+                ) : <p className="saved-plans__empty">No tickets found.<br />Are you logged in?</p>}
             </div>
         </>
     );
