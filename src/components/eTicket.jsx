@@ -1,14 +1,49 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FetchMongo from "./fetchMongo";
 
 function ETicket() {
     const [ticketData, setTicketData] = useState([]);
 
-    // shorten _id to 7 characters
+    // Shorten _id to 7 characters
     const shortenId = (id) => {
         return id.slice(0, 7);
     }
 
+    function isExpiredTicket(ticketDate) {
+        // Get ticket day and month
+        const [ticketDay, ticketMonth] = ticketDate.split('/').map(Number);
+
+        const currentDay = new Date().getDate();
+        const currentMonth = new Date().getMonth() + 1;
+
+        // Check if ticket date is in the past
+        return (ticketMonth < currentMonth) ||
+            (ticketMonth === currentMonth && ticketDay < currentDay);
+    };
+    
+    const expiredTickets = ticketData.filter(ticket => isExpiredTicket(ticket.date));
+
+    async function removeExpiredTicket(id) {
+        const response = await fetch(`${import.meta.env.VITE_URL}/api/tickets/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        if (response.ok) {
+            setTicketData(ticketData.filter(ticket => ticket._id !== id));
+        }
+    }
+    
+    
+    useEffect(() => {
+        if (expiredTickets?.length > 0) {
+            expiredTickets.map(ticket => {
+                removeExpiredTicket(ticket._id);               
+            });
+        }
+
+    }, [expiredTickets]);
 
     return (
         <>
@@ -59,7 +94,7 @@ function ETicket() {
                             <div className="eticket__item__bottom">
                                 {/* <!-- insert your custom barcode setting your data in the GET parameter "data" --> */}
                                 <img alt='Barcode Generator TEC-IT'
-                                    src={`https://barcode.tec-it.com/barcode.ashx?data=${shortenId(ticket._id)}`} 
+                                    src={`https://barcode.tec-it.com/barcode.ashx?data=${shortenId(ticket._id)}`}
                                 />
                                 <div className="eticket__item__bottom__left"></div>
                                 <div className="eticket__item__bottom__right"></div>
