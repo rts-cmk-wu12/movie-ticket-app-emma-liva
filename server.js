@@ -68,6 +68,17 @@ async function startServer() {
     }
   });
 
+  app.delete('/api/tickets/:id', async (request, response) => {
+    try {
+      const { id } = request.params;
+      const result = await database.collection('tickets').deleteOne({ _id: new ObjectId(id) });
+      response.status(201).json(result);
+    } catch (error) {
+      console.error("Error removing ticket:", error);
+      response.status(500).json({ error: "Failed to remove ticket" });
+    }
+  });
+
   app.get('/api/plans', async (_, response) => {
     try {
       const data = database.collection('plans').find().sort({ _id: -1 });
