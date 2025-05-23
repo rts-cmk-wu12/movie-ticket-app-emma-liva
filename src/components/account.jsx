@@ -6,10 +6,38 @@ import { IoIosArrowForward } from "react-icons/io";
 import { HiMiniTicket } from "react-icons/hi2";
 import { IoLogOut } from "react-icons/io5";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import FetchMongo from "./fetchMongo";
+import ConfirmPopup from "./confirmPopup";
 
 function Account({ userId }) {
     const [user, setUser] = useState({});
+    const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+    const [showDeletePopup, setShowDeletePopup] = useState(false);
+
+    const navigate = useNavigate();
+
+    async function handleLogout() {
+        localStorage.removeItem('user');
+        setShowLogoutPopup(false);
+        navigate('/');
+    };
+    
+    async function handleDeleteAccount() {
+        const response = await fetch(`${import.meta.env.VITE_URL}/api/users/${userId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        
+        if (response.ok) {
+            localStorage.removeItem('user');
+            setShowDeletePopup(false);
+            navigate('/');
+
+        }
+    };
 
     return (
         <>
@@ -38,8 +66,8 @@ function Account({ userId }) {
                 </div>
                 <div className="profile__container">
                     <div className="profile__container__icon profile__container__icon--red"><FaTrash /></div>
-                    <p>Deactivate Account</p>
-                    <button><IoIosArrowForward /></button>
+                    <p>Delete Account</p>
+                    <button onClick={() => setShowDeletePopup(true)}><IoIosArrowForward /></button>
                 </div>
             </section>
             <section className="profile profile--last">
@@ -57,9 +85,25 @@ function Account({ userId }) {
                 <div className="profile__container">
                     <div className="profile__container__icon profile__container__icon--red"><IoLogOut /></div>
                     <p>Logout</p>
-                    <button><IoIosArrowForward /></button>
+                    <button onClick={() => setShowLogoutPopup(true)}><IoIosArrowForward /></button>
                 </div>
             </section>
+            <ConfirmPopup
+                title="Logout"
+                message="You are about to log out. Are you sure?"
+                confirmBtn="Logout"
+                show={showLogoutPopup}
+                onCancel={() => setShowLogoutPopup(false)}
+                onConfirm={handleLogout}
+            />
+            <ConfirmPopup
+                title="Delete Account"
+                message="You are about to permanently delete your account. Are you sure?"
+                confirmBtn="Delete"
+                show={showDeletePopup}
+                onCancel={() => setShowDeletePopup(false)}
+                onConfirm={handleDeleteAccount}
+            />
         </>
     );
 }
