@@ -20,7 +20,7 @@
     color: root.$typeography-white;
     text-align: center;
     
-    width: 60%;
+    width: 70%;
     padding: 1rem;
     border-radius: 1rem;
     border: solid 3px root.$accent-blue;
@@ -40,11 +40,11 @@
         gap: 1rem;
 
         &__confirm{
-            @include mixin.buttonBlue();
+            @include mixin.buttonRed();
             width: 100%;
         }
         &__cancel{
-            @include mixin.buttonRed();
+            @include mixin.buttonBlue();
             width: 100%;
         }
     }
