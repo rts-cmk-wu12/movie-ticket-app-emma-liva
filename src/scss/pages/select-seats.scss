@@ -41,6 +41,11 @@
                 color: root.$typeography-red;
                 text-align: center;
                 margin-top: .5rem;
+
+                &.login-message {
+                    text-align: center;
+                    grid-column: span 2;
+                }
             }
         }
 
@@ -96,8 +101,11 @@
     text-align: center;
 }
 
-.login__sign-up{
-    &--link{
+.login__sign-up {
+    font-size: .75em;
+    text-align: center;
+
+    &--link {
         text-decoration: underline;
         color: root.$typeography-blue;
     }

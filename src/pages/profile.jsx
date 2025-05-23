@@ -1,10 +1,11 @@
-
+import Header from "../components/header";
 import Account from "../components/account";
 import Footer from "../components/footer";
-import Header from "../components/header";
-
+import LogIn from "../components/logIn";
 
 function Profile() {
+    const userId = localStorage.getItem('user');
+
     return (  
         <>
         <Header 
@@ -12,8 +13,12 @@ function Profile() {
             navigateReturn={false}
         />
 
-        <main className="profileMain">
-            <Account />
+        <main className="profile-main">
+            {userId ? (
+                <Account userId={userId} />
+            ) : (
+                <LogIn />
+            )}
         </main>
 
         <Footer current="profile" />    

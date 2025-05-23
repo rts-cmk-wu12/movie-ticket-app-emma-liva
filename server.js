@@ -110,14 +110,37 @@ async function startServer() {
     }
   });
 
+  app.get('/api/users/:id', async (request, response) => {
+    try {
+      const { id } = request.params;
+      const result = await database.collection('users').findOne({ _id: new ObjectId(id) });
+      response.status(200).json(result);
+    } catch (error) {
+      console.error("Error finding the selected user:", error);
+      response.status(500).json({ error: "Failed to find the selected user" });
+    }
+  });
+
   app.post('/api/user/add', async (request, response) => {
     try {
       const data = request.body;
       const result = await database.collection('users').insertOne(data);
-      response.status(201).json(result);
+      response.status(201).json({ userId: result.insertedId });
     } catch (error) {
       console.error("Error adding user to database:", error);
       response.status(500).json({ error: "Failed to add user to database" });
+    }
+  });
+
+  app.post('/api/user/login', async (request, response) => {
+    try {
+      const { username } = request.body;
+
+      const user = await database.collection("users").findOne({ username });
+      response.status(200).json({ userId: user._id });
+    } catch (error) {
+      console.error("Error finding user in the database:", error);
+      response.status(500).json({ error: "Failed to find user in the database" });
     }
   });
 

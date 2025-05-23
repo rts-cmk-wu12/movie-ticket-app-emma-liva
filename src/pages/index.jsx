@@ -5,18 +5,24 @@ import Fetch from "../components/fetch";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Search from "../components/search";
+import FetchMongo from "../components/fetchMongo";
 
 function HomePage() {
     const [comingSoon, setComingSoon] = useState([]);
     const [cinemas, setCinemas] = useState([]);
     const [processedCinemas, setProcessedCinemas] = useState([]);
     const [popup, setPopup] = useState('welcome');
+    const [user, setUser] = useState({});
+
+    const userId = localStorage.getItem('user');
 
     useEffect(() => {
-        setPopup('welcome active');
-        setTimeout(() => {
-            setPopup('welcome');
-        }, 3000);
+        if (userId) {
+            setPopup('welcome active');
+            setTimeout(() => {
+                setPopup('welcome');
+            }, 3000);
+        }
 
         if (cinemas.results?.length > 0) {
             const max = 7.9;
@@ -51,13 +57,19 @@ function HomePage() {
                 fetchUrl='https://api.themoviedb.org/3/watch/providers/movie?language=en-US'
                 setData={setCinemas}
             />
+            {userId && (
+                <FetchMongo
+                    fetchUrl={`/api/users/${userId}`}
+                    setData={setUser}
+                />
+            )}
             <Header
                 title='TheMoviez'
                 navigateReturn={false}
             />
             <Search />
             <div className={popup}>
-                <p className="welcome__text">Welcome Back,<span className="welcome__text welcome__text--user">username</span></p>
+                <p className="welcome__text">Welcome Back,<span className="welcome__text welcome__text--user">{user?.username}</span></p>
                 <img src="/placeholder.jpg" alt="user-profile" className="welcome__pfp" />
             </div>
             <main className="home">
