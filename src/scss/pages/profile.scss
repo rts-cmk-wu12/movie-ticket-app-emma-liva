@@ -1,7 +1,14 @@
 @use '../placeholders/root.scss';
 
-.profileMain {
+.profile-main {
     margin-inline: 1.5rem;
+
+    &__heading {
+        font-size: 1.25em;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: .5rem;
+    }
 }
 
 .profile {
@@ -15,7 +22,7 @@
     &--last {
         border-bottom: none;
     }
-    
+
     &__container {
         display: flex;
         width: 100%;
@@ -44,15 +51,17 @@
             &--dark-blue {
                 background-color: root.$accent-dark-blue;
             }
+
             &--blue {
                 background-color: root.$accent-blue;
             }
+
             &--red {
                 background-color: root.$accent-red;
             }
         }
 
-        p{
+        p {
             font-size: 1.2rem;
             font-weight: 500;
         }

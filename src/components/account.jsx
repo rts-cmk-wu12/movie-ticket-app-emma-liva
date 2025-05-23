@@ -5,14 +5,22 @@ import { HiBell } from "react-icons/hi";
 import { IoIosArrowForward } from "react-icons/io";
 import { HiMiniTicket } from "react-icons/hi2";
 import { IoLogOut } from "react-icons/io5";
+import { useState } from "react";
+import FetchMongo from "./fetchMongo";
 
-function Account() {
-    return (  
+function Account({ userId }) {
+    const [user, setUser] = useState({});
+
+    return (
         <>
-          <div className="profile">
+            <FetchMongo
+                fetchUrl={`/api/users/${userId}`}
+                setData={setUser}
+            />
+            <div className="profile">
                 <div className="profile__container">
                     <img src="/placeholder.jpg" alt="Profile-img" />
-                    <p>Username</p>
+                    <p>{user.username}</p>
                     <button><IoIosArrowForward /></button>
                 </div>
             </div>
