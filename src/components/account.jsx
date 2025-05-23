@@ -77,11 +77,11 @@ function Account({ userId }) {
                     <p>Notifications</p>
                     <button><IoIosArrowForward /></button>
                 </div>
-                <div className="profile__container">
+                <Link to="/e-ticket"><div className="profile__container">
                     <div className="profile__container__icon profile__container__icon--blue"><HiMiniTicket /></div>
-                    <Link to="/e-ticket"><p>Your Tickets</p></Link>
+                    <p>Your Tickets</p>
                     <button><IoIosArrowForward /></button>
-                </div>
+                </div></Link>
                 <div className="profile__container">
                     <div className="profile__container__icon profile__container__icon--red"><IoLogOut /></div>
                     <p>Logout</p>
