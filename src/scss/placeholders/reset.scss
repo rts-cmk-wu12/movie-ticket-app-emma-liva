@@ -33,3 +33,11 @@ body {
 main {
     margin-bottom: 4rem;
 }
+
+body:has(.popupOverlay.active) {
+    overflow-y: hidden;
+}
+
+body:has(.popupConfirmOverlay.active) {
+    overflow-y: hidden;
+}
