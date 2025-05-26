@@ -14,7 +14,7 @@ function CheckoutPage() {
 
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth() + 1;
-    const currentYear = currentDate.getFullYear().toString().slice(-2);
+    const currentYear = Number(currentDate.getFullYear().toString().slice(-2));
 
     function validateForm(e) {
         e.preventDefault();
@@ -27,7 +27,7 @@ function CheckoutPage() {
         const year = parseInt(splittedDate[1]);
 
         const isValidDate = month >= 1 && month <= 12 && year >= 0 && year <= 99;
-        const isValidDateFormat = form.date.value.match(/^\d{2}\/\d{2}$/);
+        const isValidDateFormat = form.date.value.match(/^(\d{1,2})\/(\d{2})$/);
         const isValidDateRange = (year > currentYear) || (year === currentYear && month >= currentMonth);
 
         if (!form.email.value.toLowerCase().match(/^\S+@\S+\.\S+$/)) {
@@ -50,8 +50,16 @@ function CheckoutPage() {
             newErrors.cardnumber = 'Card number cannot include non-numeric characters.';
         }
 
-        if (!isValidDate || !isValidDateFormat || !isValidDateRange) {
-            newErrors.date = 'Invalid date. Please use mm/yy format and ensure the date is not in the past.';
+        if (!isValidDate) {
+            newErrors.date = 'Invalid date. Please type a real date.';
+        }
+
+        if (!isValidDateFormat) {
+            newErrors.date = 'Date must be in mm/yy format.';
+        }
+
+        if (!isValidDateRange) {
+            newErrors.date = 'Date must be in the future.';
         }
 
         if (form.cvv.value.length !== 3) {
