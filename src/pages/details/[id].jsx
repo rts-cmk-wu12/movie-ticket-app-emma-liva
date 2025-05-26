@@ -29,18 +29,18 @@ function DetailsPage() {
                 bookmark={true}
                 bookmarkData={bookmarkData}
             />
-            <main>
+            <main className="details">
                 <Fetch
                     fetchUrl={`https://api.themoviedb.org/3/movie/${id}?append_to_response=credits&language=en-US`}
                     setData={setDetails}
                 />
-                <div key={details.id} className="details">
+                <>
                     <img src={`https://image.tmdb.org/t/p/w500${details.poster_path}`} alt={details.title} />
                     <h2>{details.title}</h2>
                     <div className="details__info">
                         <p className="details__info__director">Director: {director?.name}</p>
                         <p className="details__info-divide">|</p>
-                        <p><FaStar className="star" /> {details.vote_average}</p>
+                        <p><FaStar className="star" /> {details.vote_average.toFixed(1)}</p>
                     </div>
                     <div className="details__info">
                         <p>{`${hours}h ${minutes}m`}</p>
@@ -56,7 +56,7 @@ function DetailsPage() {
                     <h2>Synopsis</h2>
                     <p>{details.overview}</p>
                     <Link to={`/select/${details.title}`} ><button>Book Ticket</button></Link>
-                </div>
+                </>
             </main>
         </>
     );
