@@ -29,7 +29,6 @@
 
         &__director {
             font-size: 1em;
-
         }
 
         &-divide {
@@ -56,6 +55,5 @@
     button {
         width: 100%;
         @include mixin.buttonBlue();
-
     }
 }

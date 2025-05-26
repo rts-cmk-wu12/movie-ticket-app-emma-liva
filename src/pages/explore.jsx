@@ -14,7 +14,7 @@ function Explore() {
     const [activeTab, setActiveTab] = useState('nowShowing');
     const [showSearch, setShowSearch] = useState(false);
 
-    const handleTabChange = (tab) => {
+    function handleTabChange(tab) {
         setActiveTab(tab);
     };
 

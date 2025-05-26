@@ -1,10 +1,10 @@
 @use '../placeholders/root.scss';
 
-.screen{
+.screen {
     border-top: solid 4px root.$accent-blue;
     margin-inline: 1.5rem;
     height: 10rem;
-    border-radius: 50% / 20% ;
+    border-radius: 50% / 20%;
     box-shadow: root.$accent-blue 0px 30px 25px -30px inset;
 }
 
@@ -14,7 +14,6 @@
     flex-direction: column;
     align-items: center;
     margin-top: -5rem;
-
 
     &__row {
         display: grid;
@@ -45,7 +44,7 @@
             background-color: root.$accent-blue;
             border-color: root.$accent-blue;
         }
-        
+
         &:disabled {
             background-color: root.$accent-red;
             border-color: root.$accent-red;

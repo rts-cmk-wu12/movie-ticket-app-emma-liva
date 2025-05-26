@@ -1,41 +1,28 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Fetch from "./fetch";
 
 function Genre({ ids }) {
     const [genre, setGenre] = useState([]);
 
-    useEffect(() => {
-        async function fetchGenres() {
-            const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-            const URL = "https://api.themoviedb.org/3/genre/movie/list?language=en-US";
-            const options = {
-                method: "GET",
-                headers: {
-                    accept: "application/json",
-                    Authorization: `Bearer ${API_KEY}`
-                }
-            };
-
-            const response = await fetch(URL, options);
-            const data = await response.json();
-
-            setGenre(data.genres);
-        }
-        fetchGenres();
-    }, []);
-
-    const getGenreIds = (genreIds) => {
+    function getGenreIds(genreIds) {
         return genreIds.map((id) => {
-            const genreItem = genre.find((gen) => gen.id === id);
+            const genreItem = genre?.genres?.find((gen) => gen.id === id);
             return genreItem ? genreItem.name : "";
         });
     };
 
     return (
-        <ul>
-            {getGenreIds(ids).map((g, index) => (
-                <li key={index}>{g}</li>
-            ))}
-        </ul>
+        <>
+            <Fetch
+                fetchUrl='https://api.themoviedb.org/3/genre/movie/list?language=en-US'
+                setData={setGenre}
+            />
+            <ul>
+                {getGenreIds(ids).map((g, index) => (
+                    <li key={index}>{g}</li>
+                ))}
+            </ul>
+        </>
     );
 }
 

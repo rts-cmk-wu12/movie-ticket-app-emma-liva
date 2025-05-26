@@ -6,7 +6,7 @@ import Fetch from "./fetch";
 function StarRating() {
     const [topMovies, setTopMovies] = useState([]);
 
-    const getStars = (rating) => {
+    function getStars(rating) {
         const stars = rating / 2;
         const roundedStars = Math.round(stars * 2) / 2;
 
@@ -42,7 +42,6 @@ function StarRating() {
                     </div>
                 </Link>
             ))}
-
         </div>
     );
 }

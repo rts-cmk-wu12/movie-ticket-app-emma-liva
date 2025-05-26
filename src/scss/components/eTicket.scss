@@ -13,19 +13,18 @@
     &:has(.saved-plans__empty) {
         padding: 0;
         display: block;
-        
+
         p {
             margin-top: 0;
         }
     }
 
     &__item {
-        
         &__top {
             background-color: root.$primary-white;
             color: root.$primary-black;
             padding: 1.5rem 2rem 3rem;
-            width:80vw;
+            width: 80vw;
             height: 40vh;
 
             display: flex;
@@ -33,61 +32,64 @@
             gap: 1rem;
             border-radius: 1.5rem;
 
-            tbody{
+            tbody {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
                 justify-items: auto;
-           
-                tr{
+
+                tr {
                     display: flex;
                     flex-direction: column;
                     text-align: left;
-                    th{
-                        color: root.$typeography-gray; 
+
+                    &:nth-of-type(2n) {
+                        padding-left: 2rem;
                     }
-                    td{
+
+                    th {
+                        color: root.$typeography-gray;
+                    }
+
+                    td {
                         color: root.$typeography-black;
                         font-weight: 600;
                     }
                 }
-                tr:nth-of-type(2n) {
-                    padding-left: 2rem;
-                }
-                
             }
-            
         }
+
         &__bottom {
             background-color: root.$primary-white;
             padding: 3rem 1.5rem 1rem;
             border-top: dotted 3px root.$primary-black;
             position: relative;
             border-radius: 1.5rem;
-            
-            img{
+
+            img {
                 width: 100%;
                 height: 4rem
             }
-            
-            &__left, &__right {
+
+            &__left,
+            &__right {
                 position: absolute;
                 width: 4rem;
                 height: 4rem;
                 background-color: root.$primary-black;
                 border-radius: 4rem;
                 top: 0;
-                
             }
+
             &__left {
                 left: 0;
                 transform: translate(-50%, -50%);
             }
+
             &__right {
                 right: 0;
                 transform: translate(50%, -50%);
             }
-
         }
     }
 }
@@ -95,6 +97,7 @@
 .black {
     color: root.$typeography-black !important;
 }
+
 .red {
     color: root.$typeography-red !important;
 }

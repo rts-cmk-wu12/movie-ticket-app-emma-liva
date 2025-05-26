@@ -37,6 +37,7 @@ function ETicket() {
                 'Content-Type': 'application/json',
             },
         });
+        
         if (response.ok) {
             setTicketData(ticketData.filter(ticket => ticket._id !== id));
         }

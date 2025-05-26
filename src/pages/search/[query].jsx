@@ -17,7 +17,6 @@ function SearchPage() {
             />
             <main>
                 <Search />
-
                 <div className="upcoming__section__list">
                     <Fetch
                         fetchUrl={`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`}
