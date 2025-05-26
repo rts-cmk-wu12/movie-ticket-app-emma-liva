@@ -3,7 +3,8 @@
 
 .details {
     margin-inline: 1.5rem;
-    gap: 1rem;
+    margin-top: .5rem;
+    gap: .5rem;
     display: flex;
     flex-direction: column;
 
@@ -15,17 +16,16 @@
 
     img {
         width: 100%;
-        height: 100%;
         object-fit: cover;
         border-radius: 1.5rem;
-        margin-block: 1rem;
     }
 
     &__info {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-        color: root.$typeography-light-gray;
+        font-size: .87em;
 
         &__director {
             font-size: 1em;
@@ -37,12 +37,16 @@
         }
     }
 
+    p {
+        color: root.$typeography-light-gray;
+    }
+
     &__genres {
         display: flex;
         flex-wrap: wrap;
         gap: .5rem;
         list-style: none;
-        margin-top: .5rem;
+        margin-block: .5rem;
 
         li {
             background-color: root.$tertiary-black;
