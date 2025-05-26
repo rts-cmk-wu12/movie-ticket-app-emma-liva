@@ -1,15 +1,11 @@
 @use "../placeholders/root.scss";
 
 .content {
-    display: flex;
-    justify-content: center;
-    margin-block: 1rem;
-
     &__navigation {
+        margin-block: 1rem;
         display: flex;
         gap: 1rem;
         margin-inline: 1.5rem;
-        width: 100%;
         padding: .5rem;
         background-color: root.$tertiary-black;
         border-radius: .5rem;

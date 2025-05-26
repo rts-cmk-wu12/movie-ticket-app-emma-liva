@@ -9,19 +9,17 @@ function ChangeContent({ onTabChange }) {
     };
 
     return (
-        <div className="content">
-            <div className="content__navigation">
-                <button
-                    onClick={() => handleTabChange('nowShowing')}
-                    className={activeTab === 'nowShowing' ? 'active' : ''}>
-                    Now Showing
-                </button>
-                <button
-                    onClick={() => handleTabChange('upcoming')}
-                    className={activeTab === 'upcoming' ? 'active' : ''}>
-                    Upcoming
-                </button>
-            </div>
+        <div className="content__navigation">
+            <button
+                onClick={() => handleTabChange('nowShowing')}
+                className={activeTab === 'nowShowing' ? 'active' : ''}>
+                Now Showing
+            </button>
+            <button
+                onClick={() => handleTabChange('upcoming')}
+                className={activeTab === 'upcoming' ? 'active' : ''}>
+                Upcoming
+            </button>
         </div>
     );
 }

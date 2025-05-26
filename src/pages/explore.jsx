@@ -50,15 +50,17 @@ function Explore() {
                                 fetchUrl='https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1'
                                 setData={setRecommendedMovies}
                             />
-                            {recommendedMovies.results?.map((movie) => (
-                                <Link key={movie.id} to={`/details/${movie.id}`}>
-                                    <div className="explore__section__list__item">
-                                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="recommended-poster" />
-                                        <h3>{movie.title}</h3>
-                                        <Genre ids={movie.genre_ids} />
-                                    </div>
-                                </Link>
-                            ))}
+                            {recommendedMovies.results?.length > 0 ? (
+                                recommendedMovies.results?.map((movie) => (
+                                    <Link key={movie.id} to={`/details/${movie.id}`}>
+                                        <div className="explore__section__list__item">
+                                            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="recommended-poster" />
+                                            <h3>{movie.title}</h3>
+                                            <Genre ids={movie.genre_ids} />
+                                        </div>
+                                    </Link>
+                                ))
+                            ) : <p>Loading...</p>}
                         </div>
                     </section>
                 </div>
