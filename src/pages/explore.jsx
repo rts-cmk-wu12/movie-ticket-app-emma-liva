@@ -53,7 +53,7 @@ function Explore() {
                             {recommendedMovies.results?.map((movie) => (
                                 <Link key={movie.id} to={`/details/${movie.id}`}>
                                     <div className="explore__section__list__item">
-                                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="recommended-poster" />
                                         <h3>{movie.title}</h3>
                                         <Genre ids={movie.genre_ids} />
                                     </div>

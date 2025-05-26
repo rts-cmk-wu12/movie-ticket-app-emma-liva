@@ -19,7 +19,7 @@
             }
 
             button {
-                font-size: 1.25em;
+                font-size: .87em;
                 border: none;
                 background-color: root.$primary-black;
                 color: root.$typeography-gray;
@@ -27,7 +27,8 @@
         }
 
         &__list {
-            gap: 2rem;
+            margin-top: 1rem;
+            gap: 1.5rem;
             padding-left: 1.5rem;
             @include mixin.slider();
 
@@ -37,9 +38,13 @@
 
             img {
                 width: auto;
-                height: 50vh;
-                border-radius: 2rem;
-                margin-block: 1rem;
+                height: 15.6rem;
+                border-radius: 1rem;
+
+                &.recommended-poster {
+                    width: 8rem;
+                    height: auto;
+                }
             }
 
             &__item {
@@ -59,7 +64,7 @@
                         background-color: root.$tertiary-black;
                         padding: .2rem .4rem;
                         border-radius: 1rem;
-                        font-size: 1em;
+                        font-size: .75em;
                     }
                 }
             }
@@ -76,6 +81,10 @@
     }
 
     &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
         &__noResults {
             margin-inline: 1.5rem;
             margin-top: 1rem;
@@ -90,7 +99,6 @@
                 width: 25vw;
                 height: auto;
                 border-radius: 1rem;
-                margin-block: 1rem;
                 margin-right: .5rem;
             }
 
@@ -107,9 +115,9 @@
 
                     li {
                         background-color: root.$tertiary-black;
-                        padding: .2rem .3rem;
+                        padding: .2rem .4rem;
                         border-radius: 1rem;
-
+                        font-size: .75em;
                     }
                 }
             }
