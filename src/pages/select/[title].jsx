@@ -91,7 +91,6 @@ function SelectSeat() {
                 title="Select Seats"
                 search={false}
             />
-
             <main className="select">
                 <Fetch
                     fetchUrl='https://api.themoviedb.org/3/watch/providers/movie?language=en-US'
@@ -107,7 +106,6 @@ function SelectSeat() {
                             ))}
                         </select>
                     </div>
-
                     <div>
                         <label htmlFor="date" className="select-seats__label">Date</label>
                         <select name="date" id="date" className="select-seats__select">
@@ -117,7 +115,6 @@ function SelectSeat() {
                             <RandomDate date={createRandomDate()} />
                         </select>
                     </div>
-
                     <div>
                         <label htmlFor="time" className="select-seats__label">Time</label>
                         <select name="time" id="time" className="select-seats__select">

@@ -22,7 +22,7 @@ function Account({ userId }) {
         setShowLogoutPopup(false);
         navigate('/');
     };
-    
+
     async function handleDeleteAccount() {
         const response = await fetch(`${import.meta.env.VITE_URL}/api/users/${userId}`, {
             method: 'DELETE',
@@ -30,12 +30,11 @@ function Account({ userId }) {
                 'Content-Type': 'application/json',
             },
         });
-        
+
         if (response.ok) {
             localStorage.removeItem('user');
             setShowDeletePopup(false);
             navigate('/');
-
         }
     };
 

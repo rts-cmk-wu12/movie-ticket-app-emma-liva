@@ -20,7 +20,7 @@ function DetailsPage() {
         rating: details.vote_average,
         runtime: `${hours}h ${minutes}m`,
         genres: details.genres?.map(genre => genre.name).join(', '),
-    }
+    };
 
     return (
         <>

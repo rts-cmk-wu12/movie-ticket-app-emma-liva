@@ -76,7 +76,6 @@
     }
 
     &__list {
-
         &__noResults {
             margin-inline: 1.5rem;
             margin-top: 1rem;
@@ -93,11 +92,6 @@
                 border-radius: 1rem;
                 margin-block: 1rem;
                 margin-right: .5rem;
-            }
-
-            p,
-            span {
-                font-weight: 500;
             }
 
             &__info {

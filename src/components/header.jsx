@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import FetchMongo from "./fetchMongo";
 import ConfirmPopup from "./confirmPopup";
 
-function Header({ title, navigateReturn = true, toPage = -1, search = false, bookmark = false, bookmarkData, showSearch, setShowSearch }) {
+function Header({ title, navigateReturn = true, search = false, bookmark = false, bookmarkData, showSearch, setShowSearch }) {
     const [savedBookmarks, setSavedBookmarks] = useState([]);
     const [bookmarked, setBookmarked] = useState(false);
     const [showCheckoutPopup, setShowCheckoutPopup] = useState(false);
@@ -44,7 +44,7 @@ function Header({ title, navigateReturn = true, toPage = -1, search = false, boo
             />
 
             <header className="header">
-                {navigateReturn && <FaAngleLeft color='#FFF' onClick={() => navigate(toPage)} className="header__left" />}
+                {navigateReturn && <FaAngleLeft color='#FFF' onClick={() => navigate(-1)} className="header__left" />}
                 <h1 className="header__title">{title}</h1>
                 {search && <IoSearch
                     color="#FFF"

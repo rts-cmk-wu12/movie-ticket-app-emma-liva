@@ -2,7 +2,7 @@
 @use '../placeholders/mixin.scss';
 
 .popupOverlay {
-     transition: 400ms ease-in-out;
+    transition: 400ms ease-in-out;
     visibility: hidden;
 
     &.active {
@@ -42,7 +42,6 @@
         visibility: visible;
     }
 
-
     &__icon {
         position: absolute;
         left: 50vw;
@@ -63,6 +62,5 @@
 
     &__button {
         @include mixin.buttonBlack();
-
     }
 }

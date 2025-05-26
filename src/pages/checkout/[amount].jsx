@@ -8,13 +8,13 @@ function CheckoutPage() {
     const [errors, setErrors] = useState({});
     const [showPopup, setShowPopup] = useState(false);
     const { amount } = useParams();
+
     const pricePerSeat = 49;
     const totalPrice = pricePerSeat * amount;
 
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth() + 1;
     const currentYear = currentDate.getFullYear().toString().slice(-2);
-
 
     function validateForm(e) {
         e.preventDefault();
