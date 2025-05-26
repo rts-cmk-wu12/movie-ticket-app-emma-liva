@@ -40,7 +40,7 @@ function DetailsPage() {
                     <div className="details__info">
                         <p className="details__info__director">Director: {director?.name}</p>
                         <p className="details__info-divide">|</p>
-                        <p><FaStar className="star" /> {details.vote_average.toFixed(1)}</p>
+                        <p><FaStar className="star" /> {details.vote_average?.toFixed(1)}</p>
                     </div>
                     <div className="details__info">
                         <p>{`${hours}h ${minutes}m`}</p>

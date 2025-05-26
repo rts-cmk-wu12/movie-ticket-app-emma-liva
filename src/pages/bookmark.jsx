@@ -54,7 +54,7 @@ function SavedPlansPage() {
                                     <h2 className="saved-plans__item__title">{movie.title}</h2>
                                     <p className="saved-plans__item__text">{movie.runtime}</p>
                                 </div>
-                                <p className="saved-plans__item__star"><FaStar className="star" />{movie.rating.toFixed(1)}</p>
+                                <p className="saved-plans__item__star"><FaStar className="star" />{movie.rating?.toFixed(1)}</p>
                             </div>
                             <div className="saved-plans__item-functions">
                                 <Link to={`/select/${movie.title}`} className="saved-plans__item__btn">book ticket</Link>

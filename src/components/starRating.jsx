@@ -33,15 +33,17 @@ function StarRating() {
                 fetchUrl='https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1'
                 setData={setTopMovies}
             />
-            {topMovies.results?.map((movie) => (
-                <Link key={movie.id} to={`/details/${movie.id}`}>
-                    <div className="explore__section__list__item">
-                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                        <h3>{movie.title}</h3>
-                        {getStars(movie.vote_average)}
-                    </div>
-                </Link>
-            ))}
+            {topMovies.results?.length > 0 ? (
+                topMovies.results?.map((movie) => (
+                    <Link key={movie.id} to={`/details/${movie.id}`}>
+                        <div className="explore__section__list__item">
+                            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                            <h3>{movie.title}</h3>
+                            {getStars(movie.vote_average)}
+                        </div>
+                    </Link>
+                ))
+            ) : <p>Loading...</p>}
         </div>
     );
 }
