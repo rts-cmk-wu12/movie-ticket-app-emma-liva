@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router";
 import Fetch from "../../components/fetch";
 import Header from "../../components/header";
-import Genre from "../../components/Genre";
+import Genre from "../../components/genre";
 import Search from "../../components/search";
 import Footer from "../../components/footer";
 
