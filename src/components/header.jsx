@@ -65,14 +65,16 @@ function Header({ title, navigateReturn = true, search = false, bookmark = false
                         }
                     }} />}
             </header>
-            <ConfirmPopup
-                title="Not Logged In"
-                message="To use this feature, please log in."
-                confirmBtn="Login"
-                show={showCheckoutPopup}
-                onCancel={() => setShowCheckoutPopup(false)}
-                onConfirm={moveToLogin}
-            />
+            {bookmark && (
+                <ConfirmPopup
+                    title="Not Logged In"
+                    message="To use this feature, please log in."
+                    confirmBtn="Login"
+                    show={showCheckoutPopup}
+                    onCancel={() => setShowCheckoutPopup(false)}
+                    onConfirm={moveToLogin}
+                />
+            )}
         </>
     );
 }

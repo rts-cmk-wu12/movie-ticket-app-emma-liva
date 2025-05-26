@@ -79,7 +79,7 @@ function CheckoutPage() {
                 <form className="select-seats" onSubmit={validateForm}>
                     <div className="select-seats__cinema">
                         <label htmlFor="email" className="select-seats__label">Your Email</label>
-                        <input type="email" name="email" id="email" className="select-seats__select" placeholder="example@email.com" />
+                        <input type="text" name="email" id="email" className="select-seats__select" placeholder="example@email.com" />
                         {errors.email && (
                             <p className="select-seats__select--error">{errors.email}</p>
                         )}
