@@ -37,7 +37,7 @@ Formålet med opgaven er at:
 "Welcome Back" boksen på home er ændret til en popup, der forsvinder efter 3 sekunder.
 - Dette gjorde vi det ikke passede resten af sitet's design og forsiden ingen main heading havde. En main heading er nu addet der kan ses når popup'en er forsvundet igen. Vi valgte at navngive siden TheMoviez, da den intet navn havdet.
 
-Return knappen på explore siden er fjernet.
+Return knappen på explore, saved plans og profile siden er fjernet.
 - Dette gjorde vi da det ikke gav meningen ifølge page navigation.
 
 Genre visning på explore siden er ændret til at vise flere og have en baggrund.
@@ -61,14 +61,17 @@ Fjernet muligheden for at book billeter direkte i saved plans.
 Opdelt hver liste item i saved plans med en blå divider.
 - Dette gjorde vi for at gøre det nemmere at se hvornår en ny film kom.
 
-Billedet af et mastercard er ikke dynamisk og viser ikke brugeren kort info.
+Billedet af et mastercard er ikke dynamisk og viser ikke brugeren's kort info.
 - Dette gjorde vi da vi ikke kender en sikkert metode til at gemme betalingskort information.
 
 Ændret deactivate account til delete account.
 - Dette gjorde vi fordi det gav bedre mening og stoppede misforståelser brugere kunne have.
 
-Fjernet "Film Hunter" under brugerens brugernavn ved profil siden.
+Fjernet "Film Hunter" under brugeren's brugernavn ved profil siden.
 - Dette gjorde vi fordi det ikke gav mening hvad titlen gik ud på.
+
+Ændret bookmark ikonet til et lignede ikon, men uden minus i det.
+- Dette gjorde vi da det gav ideén at man fjernede fra saved plans, i stedet for at tilføje/se.
 
 ---
 
@@ -90,6 +93,4 @@ Fjernet "Film Hunter" under brugerens brugernavn ved profil siden.
 ---
 
 ## 🌐 Live Demo
-
-> Indsæt link til jeres hostede version her, fx:
 > [https://themoviez.onrender.com](https://themoviez.onrender.com)
