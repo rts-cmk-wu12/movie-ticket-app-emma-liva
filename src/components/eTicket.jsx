@@ -11,7 +11,7 @@ function ETicket() {
         setTicketData(allTickets?.filter(ticket => ticket?.owner === userId));
     }, [allTickets, userId]);
 
-    // shorten _id to 7 characters
+    // Shorten _id to 7 characters
     const shortenId = (id) => {
         return id.slice(0, 7);
     }
@@ -76,7 +76,7 @@ function ETicket() {
                                     </tr>
                                     <tr>
                                         <th>Seats</th>
-                                        <td>{ticket.selectedSeats}</td>
+                                        <td>{ticket.selectedSeats.join(', ')}</td>
                                     </tr>
                                     <tr>
                                         <th>Location</th>
@@ -88,7 +88,7 @@ function ETicket() {
                                     </tr>
                                     <tr>
                                         <th>Payment</th>
-                                        <td>Succesfull</td>
+                                        <td>Successful</td>
                                     </tr>
                                     <tr>
                                         <th>Order</th>
