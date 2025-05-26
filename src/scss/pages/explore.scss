@@ -1,0 +1,118 @@
+@use "../placeholders/root.scss";
+@use "../placeholders/mixin.scss";
+
+.explore {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__section {
+        &__heading {
+            display: flex;
+            justify-content: space-between;
+            padding-inline: 1.5rem;
+
+            h2 {
+                font-size: 1.25em;
+                font-weight: 500;
+                text-transform: capitalize;
+            }
+
+            button {
+                font-size: 1.25em;
+                border: none;
+                background-color: root.$primary-black;
+                color: root.$typeography-gray;
+            }
+        }
+
+        &__list {
+            gap: 2rem;
+            padding-left: 1.5rem;
+            @include mixin.slider();
+
+            &:last-child {
+                padding-right: 1.5rem;
+            }
+
+            img {
+                width: auto;
+                height: 50vh;
+                border-radius: 2rem;
+                margin-block: 1rem;
+            }
+
+            &__item {
+                h3 {
+                    font-size: 1em;
+                    font-weight: 500;
+                }
+
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: .5rem;
+                    list-style: none;
+                    margin-top: .5rem;
+
+                    li {
+                        background-color: root.$tertiary-black;
+                        padding: .2rem .4rem;
+                        border-radius: 1rem;
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.upcoming__section {
+    h2 {
+        margin-left: 1.5rem;
+        font-size: 1.25em;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    &__list {
+        &__noResults {
+            margin-inline: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        &__item {
+            display: flex;
+            align-items: center;
+            margin-inline: 2rem;
+
+            img {
+                width: 25vw;
+                height: auto;
+                border-radius: 1rem;
+                margin-block: 1rem;
+                margin-right: .5rem;
+            }
+
+            &__info {
+                display: flex;
+                flex-direction: column;
+
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: .5rem;
+                    list-style: none;
+                    margin-top: .5rem;
+
+                    li {
+                        background-color: root.$tertiary-black;
+                        padding: .2rem .3rem;
+                        border-radius: 1rem;
+
+                    }
+                }
+            }
+        }
+    }
+}

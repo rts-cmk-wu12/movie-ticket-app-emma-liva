@@ -1,0 +1,42 @@
+@use '../placeholders/mixin.scss';
+@use '../placeholders/root.scss';
+
+.coming-soon {
+    &__heading {
+        margin-bottom: .5rem;
+        font-size: 1.25em;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-inline: 1.5rem;
+    }
+
+    &__slider {
+        gap: 1rem;
+        padding-left: 1.5rem;
+        @include mixin.slider();
+
+        &:last-child {
+            padding-right: 1.5rem;
+        }
+
+        &__item {
+            &-poster {
+                width: 19rem;
+                height: 11rem;
+                object-fit: cover;
+                border-radius: .5rem;
+            }
+
+            &-title {
+                font-size: 1.25em;
+                font-weight: 500;
+                margin-block: .2rem;
+            }
+
+            &-release {
+                font-size: .87em;
+                color: root.$typeography-light-gray;
+            }
+        }
+    }
+}

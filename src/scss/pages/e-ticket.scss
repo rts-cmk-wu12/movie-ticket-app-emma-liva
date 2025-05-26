@@ -1,0 +1,26 @@
+@use '../placeholders/root.scss';
+@use '../placeholders/mixin.scss';
+
+.e-ticket {
+    padding-inline: 1.5rem;
+
+    &__heading {
+        font-size: 1.25em;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: .6rem;
+    }
+
+    &__text {
+        font-size: .87em;
+        color: root.$typeography-light-gray;
+        margin-bottom: 2rem;
+    }
+
+    &__btn {
+        @include mixin.buttonBlue();
+        width: 100%;
+        text-transform: capitalize;
+        margin-top: 2rem;
+    }
+}

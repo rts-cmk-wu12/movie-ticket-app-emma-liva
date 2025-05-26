@@ -1,0 +1,33 @@
+@use '../placeholders/root.scss';
+@use '../placeholders/mixin.scss';
+
+.checkout {
+    padding-inline: 1.5rem;
+
+    &__heading {
+        font-size: 1.25em;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: .5rem;
+    }
+
+    &__card {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    &__btn {
+        @include mixin.buttonBlue();
+        grid-column: span 2;
+        margin-top: 1rem;
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        &--money {
+            border-left: 2px solid root.$primary-white;
+            padding-left: 2rem;
+        }
+    }
+}

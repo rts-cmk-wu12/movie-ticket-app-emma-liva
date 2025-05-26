@@ -1,0 +1,59 @@
+@use '../placeholders/mixin.scss';
+@use '../placeholders/root.scss';
+
+.details {
+    margin-inline: 1.5rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1.5rem;
+        margin-block: 1rem;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: root.$typeography-light-gray;
+
+        &__director {
+            font-size: 1em;
+        }
+
+        &-divide {
+            font-size: 1.25em;
+            font-weight: 100;
+        }
+    }
+
+    &__genres {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+        list-style: none;
+        margin-top: .5rem;
+
+        li {
+            background-color: root.$tertiary-black;
+            padding: .3rem .5rem;
+            border-radius: 1rem;
+            color: root.$typeography-light-gray;
+        }
+    }
+
+    button {
+        width: 100%;
+        @include mixin.buttonBlue();
+    }
+}

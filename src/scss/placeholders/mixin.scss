@@ -1,0 +1,38 @@
+@use "root";
+
+@mixin slider() {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    &__item {
+        scroll-snap-align: center;
+    }
+}
+
+@mixin buttonBlue() {
+    background-color: root.$accent-blue;
+    color: root.$typeography-white;
+    border-radius: .5rem;
+    padding-block: .7rem;
+    border: none;
+    font-size: 1.12em;
+}
+
+@mixin buttonBlack() {
+    background-color: root.$primary-black;
+    color: root.$typeography-white;
+    border-radius: .5rem;
+    padding-block: 1rem;
+    border: none;
+    font-size: 1.12em;
+}
+
+@mixin buttonRed() {
+    background-color: root.$accent-red;
+    color: root.$typeography-white;
+    border-radius: .5rem;
+    padding-block: .7rem;
+    border: none;
+    font-size: 1.12em;
+}

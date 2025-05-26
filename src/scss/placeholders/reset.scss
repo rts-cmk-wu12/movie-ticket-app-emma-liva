@@ -1,3 +1,5 @@
+@use "./root.scss";
+
 * {
     margin: 0;
     padding: 0;
@@ -5,17 +7,25 @@
 }
 
 html {
-    font-weight: 300;
+    color: root.$typeography-white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
 }
 
 a {
     color: inherit;
+    text-decoration: none;
 }
 
 input::placeholder {
     font-family: inherit;
 }
 
-p + p {
-    margin-top: 1lh;
+body {
+    background-color: root.$primary-black;
+    overflow-x: hidden;
+}
+
+main {
+    margin-bottom: 4rem;
 }

@@ -1,0 +1,34 @@
+@use "../placeholders/root.scss";
+
+.content {
+    display: flex;
+    justify-content: center;
+    margin-block: 1rem;
+
+    &__navigation {
+        display: flex;
+        gap: 2rem;
+        margin-inline: 1.5rem;
+        width: 100%;
+        padding: 1rem;
+        background-color: root.$tertiary-black;
+        border-radius: .5rem;
+
+        button {
+            padding: 1rem 1rem;
+            width: 50%;
+            border-radius: .5rem;
+            background-color: root.$tertiary-black;
+            border: none;
+            color: root.$typeography-gray;
+            transition: all 0.3s ease-in-out;
+
+            &.active {
+                border: none;
+                background-color: root.$accent-blue;
+                color: root.$typeography-white;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+}
