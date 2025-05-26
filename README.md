@@ -92,4 +92,4 @@ Fjernet "Film Hunter" under brugerens brugernavn ved profil siden.
 ## 🌐 Live Demo
 
 > Indsæt link til jeres hostede version her, fx:
-> [https://biografbooking.netlify.app](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+> [https://themoviez.onrender.com](https://themoviez.onrender.com)
