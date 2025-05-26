@@ -61,6 +61,9 @@ Fjernet muligheden for at book billeter direkte i saved plans.
 Opdelt hver liste item i saved plans med en blå divider.
 - Dette gjorde vi for at gøre det nemmere at se hvornår en ny film kom.
 
+Tilføjet film titel til select seats siden.
+- Dette gjorde vi da det var mere brugervenligt at kunne se hvilken film man var inde på.
+
 Billedet af et mastercard er ikke dynamisk og viser ikke brugeren's kort info.
 - Dette gjorde vi da vi ikke kender en sikkert metode til at gemme betalingskort information.
 
