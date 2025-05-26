@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import Fetch from "../components/fetch";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import Genre from "../components/Genre";
+import Genre from "../components/genre";
 import ChangeContent from "../components/changeContent";
 import StarRating from "../components/starRating";
 import Search from "../components/search";
