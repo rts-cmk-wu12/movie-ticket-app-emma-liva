@@ -27,7 +27,7 @@ let database;
 
 app.use((req, res, next) => {
   const allowedOrigins = [
-    "liveside-link",
+    "https://themoviez.onrender.com",
     "http://localhost:3001"
   ];
   const origin = req.headers.origin;
