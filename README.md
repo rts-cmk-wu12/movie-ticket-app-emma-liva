@@ -60,6 +60,16 @@ Fjernet muligheden for at book billeter direkte i saved plans.
 
 Opdelt hver liste item i saved plans med en blå divider.
 - Dette gjorde vi for at gøre det nemmere at se hvornår en ny film kom.
+
+Billedet af et mastercard er ikke dynamisk og viser ikke brugeren kort info.
+- Dette gjorde vi da vi ikke kender en sikkert metode til at gemme betalingskort information.
+
+Ændret deactivate account til delete account.
+- Dette gjorde vi fordi det gav bedre mening og stoppede misforståelser brugere kunne have.
+
+Fjernet "Film Hunter" under brugerens brugernavn ved profil siden.
+- Dette gjorde vi fordi det ikke gav mening hvad titlen gik ud på.
+
 ---
 
 ## 🌟 Ekstra Opgaver:
