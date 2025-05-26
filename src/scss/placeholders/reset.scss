@@ -21,6 +21,10 @@ input::placeholder, button {
     font-family: inherit;
 }
 
+input {
+    font-size: 1em;
+}
+
 body {
     background-color: root.$primary-black;
     overflow-x: hidden;
