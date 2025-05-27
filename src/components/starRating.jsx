@@ -30,11 +30,11 @@ function StarRating() {
     return (
         <div className="explore__section__list">
             <Fetch
-                fetchUrl='https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1'
+                fetchUrl='https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1'
                 setData={setTopMovies}
             />
             {topMovies.results?.length > 0 ? (
-                topMovies.results?.map((movie) => (
+                topMovies.results?.sort((a, b) => b.vote_average - a.vote_average).map((movie) => (
                     <Link key={movie.id} to={`/details/${movie.id}`}>
                         <div className="explore__section__list__item">
                             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />

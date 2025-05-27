@@ -36,14 +36,14 @@ function Explore() {
                     <section className="explore__section">
                         <div className="explore__section__heading">
                             <h2>Top Movies</h2>
-                            <button type="button">See more</button>
+                            <Link to="/see-more/top movies" >See more</Link>
                         </div>
                         <StarRating />
                     </section>
                     <section className="explore__section">
                         <div className="explore__section__heading">
                             <h2>Recommended</h2>
-                            <button type="button">See more</button>
+                            <Link to="/see-more/recommended" >See more</Link>
                         </div>
                         <div className="explore__section__list">
                             <Fetch
