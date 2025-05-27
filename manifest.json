@@ -1,6 +1,5 @@
 {
     "name": "TheMoviez",
-    "short_name": "Moviez",
     "start_url": "/",
     "display": "standalone",
     "description": "A mobile web-app for browsing and booking movie tickets.",
@@ -9,6 +8,11 @@
     "icons": [
         {
             "src": "../movie.svg",
+            "sizes": "any",
+            "type": "image/png"
+        },
+        {
+            "src": "../movie.png",
             "sizes": "any",
             "type": "image/png"
         }
