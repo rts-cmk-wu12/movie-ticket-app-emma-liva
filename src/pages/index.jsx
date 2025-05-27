@@ -38,7 +38,7 @@ function HomePage() {
                 ...cinema,
                 distance: +(Math.random() * (max - min) + min).toFixed(1),
                 closingHour: Math.floor(Math.random() * (hourMax - hourMin + 1)) + hourMin,
-                rating: Math.round((Math.random() * (ratingMax - ratingMin) + ratingMin) * 2) / 2,
+                rating: +(Math.random() * (ratingMax - ratingMin) + ratingMin).toFixed(1),
             }));
 
             cinemasWithDetails.sort((a, b) => a.distance - b.distance);
