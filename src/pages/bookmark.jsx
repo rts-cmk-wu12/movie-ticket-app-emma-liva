@@ -43,7 +43,7 @@ function SavedPlansPage() {
                 {savedPlans.length > 0 ? (
                     savedPlans.map(movie => (
                         <div key={movie._id} className="saved-plans__item">
-                            <div className="saved-plans__item-movie">
+                            <Link to={`/details/${movie.id}`} className="saved-plans__item-movie">
                                 <img
                                     src={`https://image.tmdb.org/t/p/w500${movie.poster}`}
                                     alt={`${movie.title} poster`}
@@ -55,7 +55,7 @@ function SavedPlansPage() {
                                     <p className="saved-plans__item__text">{movie.runtime}</p>
                                 </div>
                                 <p className="saved-plans__item__star"><FaStar className="star" />{movie.rating?.toFixed(1)}</p>
-                            </div>
+                            </Link>
                             <div className="saved-plans__item-functions">
                                 <Link to={`/select/${movie.title}`} className="saved-plans__item__btn">book ticket</Link>
                                 <button
