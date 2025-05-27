@@ -1,18 +1,16 @@
 {
     "name": "TheMoviez",
+    "short_name": "Moviez",
     "start_url": "/",
     "display": "standalone",
-    "display_override": "standalone",
-    "orientation": "portrait",
+    "description": "A mobile web-app for browsing and booking movie tickets.",
     "theme_color": "#1b1e25",
     "background_color": "#1b1e25",
-    "prefer_related_applications": false,
     "icons": [
         {
             "src": "../movie.svg",
             "sizes": "any",
-            "type": "image/jpg",
-            "purpose": "any"
+            "type": "image/png"
         }
     ]
 }
