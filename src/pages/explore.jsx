@@ -74,18 +74,20 @@ function Explore() {
                             fetchUrl='https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1'
                             setData={setUpcomingMovies}
                         />
-                        {upcomingMovies.results?.map((movie) => (
-                            <Link key={movie.id} to={`/details/${movie.id}`}>
-                                <div key={movie.id} className="upcoming__section__list__item">
-                                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                                    <div className="upcoming__section__list__item__info">
-                                        <h3>{movie.title}</h3>
-                                        <p><span>Release Date:</span> <br />{movie.release_date}</p>
-                                        <Genre ids={movie.genre_ids} />
+                        {upcomingMovies.results?.length > 0 ? (
+                            upcomingMovies.results?.map((movie) => (
+                                <Link key={movie.id} to={`/details/${movie.id}`}>
+                                    <div key={movie.id} className="upcoming__section__list__item">
+                                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                                        <div className="upcoming__section__list__item__info">
+                                            <h3>{movie.title}</h3>
+                                            <p><span>Release Date:</span> <br />{movie.release_date}</p>
+                                            <Genre ids={movie.genre_ids} />
+                                        </div>
                                     </div>
-                                </div>
-                            </Link>
-                        ))}
+                                </Link>
+                            ))
+                        ) : <p>Loading...</p>}
                     </div>
                 </section>
             </main>
