@@ -96,5 +96,6 @@ Fjernet "Film Hunter" under brugeren's brugernavn ved profil siden.
 ---
 
 ## 🌐 Live Demo
-> [https://themoviez.onrender.com](https://themoviez.onrender.com)
-> Vores side har også en manifest fil, så du kan add den som en app til din mobil.
+[https://themoviez.onrender.com](https://themoviez.onrender.com)
+
+Vores side har også en manifest fil, så du kan add den som en app til din mobil.
