@@ -1,0 +1,22 @@
+@use '../fonts/fonts.scss';
+@use './placeholders/reset.scss';
+
+@use './pages/home.scss';
+@use './pages/explore.scss';
+@use './pages//bookmark.scss';
+@use './pages/details.scss';
+@use './pages/select-seats.scss';
+@use './pages/checkout.scss';
+@use './pages/e-ticket.scss';
+@use './pages/profile.scss';
+@use './pages/see-more.scss';
+
+@use './components/header.scss';
+@use './components/popup.scss';
+@use './components/search.scss';
+@use './components/changeContent.scss';
+@use './components/stars.scss';
+@use './components/seats.scss';
+@use './components/footer.scss';
+@use './components/eTicket.scss';
+@use './components/confirmPopup.scss';

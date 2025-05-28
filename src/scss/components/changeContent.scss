@@ -1,0 +1,30 @@
+@use "../placeholders/root.scss";
+
+.content {
+    &__navigation {
+        margin-block: 1rem;
+        display: flex;
+        gap: 1rem;
+        margin-inline: 1.5rem;
+        padding: .5rem;
+        background-color: root.$tertiary-black;
+        border-radius: .5rem;
+
+        button {
+            padding: .8rem;
+            font-size: .87em;
+            width: 50%;
+            border-radius: .5rem;
+            background-color: root.$tertiary-black;
+            border: none;
+            color: root.$typeography-light-gray;
+            transition: 0.3s ease-in-out;
+
+            &.active {
+                border: none;
+                background-color: root.$accent-blue;
+                color: root.$typeography-white;
+            }
+        }
+    }
+}

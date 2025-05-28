@@ -1,0 +1,65 @@
+@use '../placeholders/mixin.scss';
+@use '../placeholders/root.scss';
+
+.details {
+    margin-inline: 1.5rem;
+    margin-block: .5rem 1.5rem;
+    gap: .5rem;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 1.5rem;
+    }
+
+    &__info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        font-size: .87em;
+
+        &__director {
+            font-size: 1em;
+        }
+
+        &-divide {
+            font-size: 1.25em;
+            font-weight: 100;
+        }
+    }
+
+    p {
+        color: root.$typeography-light-gray;
+    }
+
+    &__genres {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+        list-style: none;
+        margin-block: .5rem;
+
+        li {
+            background-color: root.$tertiary-black;
+            padding: .3rem .5rem;
+            border-radius: 1rem;
+            color: root.$typeography-light-gray;
+        }
+    }
+
+    button {
+        margin-top: 1rem;
+        align-self: flex-end;
+        width: 100%;
+        @include mixin.buttonBlue();
+    }
+}

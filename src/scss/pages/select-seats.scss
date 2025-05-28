@@ -1,0 +1,114 @@
+@use '../placeholders/root.scss';
+@use '../placeholders/mixin.scss';
+
+.select {
+    padding-inline: 1.5rem;
+    margin-bottom: 0;
+    padding-bottom: 7rem;
+    position: relative;
+
+    &__heading {
+        font-size: 1.25em;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: .5rem;
+    }
+
+    &-seats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 4rem;
+
+        &__cinema {
+            grid-column: span 2;
+        }
+
+        &__label {
+            font-size: 1em;
+            display: block;
+            margin-bottom: .3rem;
+        }
+
+        &__select {
+            width: 100%;
+            background: none;
+            border: 1px solid root.$primary-gray;
+            border-radius: .5rem;
+            padding: .7rem 1rem;
+            color: root.$typeography-light-gray;
+
+            &--error {
+                font-size: .75em;
+                color: root.$typeography-red;
+                text-align: center;
+                margin-top: .5rem;
+
+                &.login-message {
+                    text-align: center;
+                    grid-column: span 2;
+                }
+            }
+        }
+
+        &__btn {
+            @include mixin.buttonBlue();
+            text-transform: capitalize;
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+        }
+    }
+}
+
+.showcase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3.5rem;
+
+    &__text {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        text-align: center;
+        font-size: .75em;
+        color: root.$typeography-light-gray;
+        text-transform: capitalize;
+    }
+
+    &__dot {
+        width: .625rem;
+        height: .625rem;
+        border-radius: 50%;
+
+        &--selected {
+            background-color: root.$accent-blue;
+        }
+
+        &--reserved {
+            background-color: root.$accent-red;
+        }
+
+        &--available {
+            border: 1px solid root.$primary-gray;
+        }
+    }
+}
+
+.error {
+    color: root.$typeography-red;
+    font-size: .75em;
+    text-align: center;
+}
+
+.login__sign-up {
+    font-size: .75em;
+    text-align: center;
+
+    &--link {
+        text-decoration: underline;
+        color: root.$typeography-blue;
+    }
+}

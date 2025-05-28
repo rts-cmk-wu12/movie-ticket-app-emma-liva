@@ -1,0 +1,53 @@
+@use '../placeholders/root.scss';
+
+.screen {
+    border-top: solid 4px root.$accent-blue;
+    margin-inline: 1.5rem;
+    height: 10rem;
+    border-radius: 50% / 20%;
+    box-shadow: root.$accent-blue 0px 30px 25px -30px inset;
+}
+
+.seats {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -5rem;
+
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        justify-items: center;
+        gap: .5rem;
+        margin-bottom: 1rem;
+
+        &--long {
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1rem .5rem;
+        }
+    }
+
+    &__btn {
+        width: 1.875rem;
+        height: 1.875rem;
+        border-radius: .6rem;
+        background: none;
+        border: 1px solid root.$primary-gray;
+        transition: 200ms;
+
+        &:hover {
+            background-color: root.$primary-gray;
+        }
+
+        &.saved {
+            background-color: root.$accent-blue;
+            border-color: root.$accent-blue;
+        }
+
+        &:disabled {
+            background-color: root.$accent-red;
+            border-color: root.$accent-red;
+        }
+    }
+}
