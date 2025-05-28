@@ -64,10 +64,10 @@ function Account() {
                     <p>Email & Payment</p>
                     <button><IoIosArrowForward /></button>
                 </div>
-                <div className="profile__container">
+                <div className="profile__container" onClick={() => setShowDeletePopup(true)}>
                     <div className="profile__container__icon profile__container__icon--red"><FaTrash /></div>
                     <p>Delete Account</p>
-                    <button onClick={() => setShowDeletePopup(true)}><IoIosArrowForward /></button>
+                    <button><IoIosArrowForward /></button>
                 </div>
             </section>
             <section className="profile profile--last">
@@ -82,10 +82,10 @@ function Account() {
                     <p>Your Tickets</p>
                     <button><IoIosArrowForward /></button>
                 </div></Link>
-                <div className="profile__container">
+                <div className="profile__container" onClick={() => setShowLogoutPopup(true)}>
                     <div className="profile__container__icon profile__container__icon--red"><IoLogOut /></div>
                     <p>Logout</p>
-                    <button onClick={() => setShowLogoutPopup(true)}><IoIosArrowForward /></button>
+                    <button><IoIosArrowForward /></button>
                 </div>
             </section>
             <ConfirmPopup
