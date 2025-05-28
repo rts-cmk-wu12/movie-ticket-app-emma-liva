@@ -14,7 +14,7 @@ function Profile() {
             />
             <main className="profile-main">
                 {userId ? (
-                    <Account userId={userId} />
+                    <Account />
                 ) : (
                     <LogIn />
                 )}

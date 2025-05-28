@@ -10,11 +10,12 @@ import { Link, useNavigate } from "react-router";
 import FetchMongo from "./fetchMongo";
 import ConfirmPopup from "./confirmPopup";
 
-function Account({ userId }) {
+function Account() {
     const [user, setUser] = useState({});
     const [showLogoutPopup, setShowLogoutPopup] = useState(false);
     const [showDeletePopup, setShowDeletePopup] = useState(false);
 
+    const userId = localStorage.getItem('user');
     const navigate = useNavigate();
 
     function handleLogout() {
