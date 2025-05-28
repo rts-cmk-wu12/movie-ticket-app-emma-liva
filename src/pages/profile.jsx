@@ -6,22 +6,20 @@ import LogIn from "../components/logIn";
 function Profile() {
     const userId = localStorage.getItem('user');
 
-    return (  
+    return (
         <>
-        <Header 
-            title="Profile"
-            navigateReturn={false}
-        />
-
-        <main className="profile-main">
-            {userId ? (
-                <Account userId={userId} />
-            ) : (
-                <LogIn />
-            )}
-        </main>
-
-        <Footer current="profile" />    
+            <Header
+                title="Profile"
+                navigateReturn={false}
+            />
+            <main className="profile-main">
+                {userId ? (
+                    <Account userId={userId} />
+                ) : (
+                    <LogIn />
+                )}
+            </main>
+            <Footer current="profile" />
         </>
     );
 }

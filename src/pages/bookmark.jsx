@@ -22,6 +22,7 @@ function SavedPlansPage() {
                 'Content-Type': 'application/json',
             },
         });
+        
         if (response.ok) {
             setSavedPlans(savedPlans.filter(movie => movie._id !== id));
         } else {
@@ -68,7 +69,7 @@ function SavedPlansPage() {
                             </div>
                         </div>
                     ))
-                ) : <p className="saved-plans__empty">No saved plans found.<br/>Are you logged in?</p>}
+                ) : <p className="saved-plans__empty">No saved plans found.<br />Are you logged in?</p>}
             </main>
             <Footer current='bookmark' />
         </>
