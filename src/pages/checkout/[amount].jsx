@@ -16,6 +16,16 @@ function CheckoutPage() {
     const currentMonth = currentDate.getMonth() + 1;
     const currentYear = Number(currentDate.getFullYear().toString().slice(-2));
 
+    function handleDate(e) {
+        const input = e.target;
+
+        const replaceNonValidCharacters = input.value.replaceAll(/[^0-9\/]/g, '');
+        const autoAddZero = replaceNonValidCharacters.length === 1 && Number(replaceNonValidCharacters) > 1 ? '0' + replaceNonValidCharacters : replaceNonValidCharacters;
+        const limitLength = autoAddZero.slice(0, 5);
+        const addSlash = limitLength.length == 2 && e.nativeEvent.inputType !== 'deleteContentBackward' ? limitLength + '/' : limitLength;
+        input.value = addSlash;
+    }
+
     function validateForm(e) {
         e.preventDefault();
 
@@ -29,8 +39,8 @@ function CheckoutPage() {
 
         // Validate if the written date is a real date
         const isValidDate = month >= 1 && month <= 12 && year >= 0 && year <= 99;
-        // Check if the date is in the correct format (mm/yy or m/yy)
-        const isValidDateFormat = form.date.value.match(/^(\d{1,2})\/(\d{2})$/);
+        // Check if the date is in the correct format (mm/yy)
+        const isValidDateFormat = form.date.value.match(/^(\d{2})\/(\d{2})$/);
         // Check if the date is in the future
         const isValidDateRange = (year > currentYear) || (year === currentYear && month >= currentMonth);
 
@@ -112,7 +122,7 @@ function CheckoutPage() {
                     </div>
                     <div>
                         <label htmlFor="date" className="select-seats__label">Date</label>
-                        <input type="text" name="date" id="date" className="select-seats__select" placeholder="mm/yy" />
+                        <input type="text" name="date" id="date" className="select-seats__select" placeholder="mm/yy" onInput={handleDate} />
                         {errors.date && (
                             <p className="select-seats__select--error">{errors.date}</p>
                         )}
