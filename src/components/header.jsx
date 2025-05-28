@@ -12,7 +12,7 @@ function Header({ title, navigateReturn = true, search = false, bookmark = false
     const navigate = useNavigate();
     const userId = localStorage.getItem('user');
 
-    const movieExists = savedBookmarks.some(movie => movie?.id === bookmarkData?.id);
+    const movieExists = savedBookmarks.some(movie => movie?.id === bookmarkData?.id && movie?.owner === userId);
 
     useEffect(() => {
         setBookmarked(movieExists);
