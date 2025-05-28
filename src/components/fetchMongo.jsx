@@ -11,8 +11,6 @@ function FetchMongo({ fetchUrl, setData }) {
 
         fetchData();
     }, [fetchUrl]);
-    
-    return null;
 }
 
 export default FetchMongo;

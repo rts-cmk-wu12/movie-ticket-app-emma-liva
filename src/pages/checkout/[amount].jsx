@@ -22,12 +22,16 @@ function CheckoutPage() {
         const form = e.target;
         const newErrors = {};
 
+        // Get the month and year from the date input
         const splittedDate = form.date.value.split('/');
         const month = parseInt(splittedDate[0]);
         const year = parseInt(splittedDate[1]);
 
+        // Validate if the written date is a real date
         const isValidDate = month >= 1 && month <= 12 && year >= 0 && year <= 99;
+        // Check if the date is in the correct format (mm/yy or m/yy)
         const isValidDateFormat = form.date.value.match(/^(\d{1,2})\/(\d{2})$/);
+        // Check if the date is in the future
         const isValidDateRange = (year > currentYear) || (year === currentYear && month >= currentMonth);
 
         if (!form.email.value.toLowerCase().match(/^\S+@\S+\.\S+$/)) {

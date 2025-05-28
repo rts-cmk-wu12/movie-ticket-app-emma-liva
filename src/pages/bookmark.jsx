@@ -22,6 +22,7 @@ function SavedPlansPage() {
                 'Content-Type': 'application/json',
             },
         });
+        
         if (response.ok) {
             setSavedPlans(savedPlans.filter(movie => movie._id !== id));
         } else {
@@ -54,7 +55,7 @@ function SavedPlansPage() {
                                     <h2 className="saved-plans__item__title">{movie.title}</h2>
                                     <p className="saved-plans__item__text">{movie.runtime}</p>
                                 </div>
-                                <p className="saved-plans__item__star"><FaStar className="star" />{movie.rating?.toFixed(1)}</p>
+                                <p className="saved-plans__item__star"><FaStar className="star" />{movie.rating}</p>
                             </Link>
                             <div className="saved-plans__item-functions">
                                 <Link to={`/select/${movie.title}`} className="saved-plans__item__btn">book ticket</Link>
@@ -68,7 +69,7 @@ function SavedPlansPage() {
                             </div>
                         </div>
                     ))
-                ) : <p className="saved-plans__empty">No saved plans found.<br/>Are you logged in?</p>}
+                ) : <p className="saved-plans__empty">No saved plans found.<br />Are you logged in?</p>}
             </main>
             <Footer current='bookmark' />
         </>

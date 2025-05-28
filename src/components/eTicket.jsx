@@ -37,7 +37,7 @@ function ETicket() {
                 'Content-Type': 'application/json',
             },
         });
-        
+
         if (response.ok) {
             setTicketData(ticketData.filter(ticket => ticket._id !== id));
         }
@@ -57,7 +57,6 @@ function ETicket() {
                 fetchUrl="/api/tickets"
                 setData={setAllTickets}
             />
-
             <div className="eticket">
                 {ticketData.length > 0 ? (
                     ticketData.map(ticket => (
@@ -96,12 +95,9 @@ function ETicket() {
                                     </tr>
                                 </tbody>
                             </table>
-
                             <div className="eticket__item__bottom">
-                                {/* <!-- insert your custom barcode setting your data in the GET parameter "data" --> */}
                                 <img alt='Barcode Generator TEC-IT'
-                                    src={`https://barcode.tec-it.com/barcode.ashx?data=${shortenId(ticket._id)}`}
-                                />
+                                    src={`https://barcode.tec-it.com/barcode.ashx?data=${shortenId(ticket._id)}`} />
                                 <div className="eticket__item__bottom__left"></div>
                                 <div className="eticket__item__bottom__right"></div>
                             </div>

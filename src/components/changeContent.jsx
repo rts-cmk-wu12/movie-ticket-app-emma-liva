@@ -1,22 +1,13 @@
-import { useState } from "react";
-
-function ChangeContent({ onTabChange }) {
-    const [activeTab, setActiveTab] = useState('nowShowing');
-
-    function handleTabChange(tab) {
-        setActiveTab(tab);
-        onTabChange(tab);
-    };
-
+function ChangeContent({ activeTab, setActiveTab }) {
     return (
         <div className="content__navigation">
             <button
-                onClick={() => handleTabChange('nowShowing')}
+                onClick={() => setActiveTab('nowShowing')}
                 className={activeTab === 'nowShowing' ? 'active' : ''}>
                 Now Showing
             </button>
             <button
-                onClick={() => handleTabChange('upcoming')}
+                onClick={() => setActiveTab('upcoming')}
                 className={activeTab === 'upcoming' ? 'active' : ''}>
                 Upcoming
             </button>

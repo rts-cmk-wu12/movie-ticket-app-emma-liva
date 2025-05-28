@@ -7,9 +7,11 @@ function StarRating() {
     const [topMovies, setTopMovies] = useState([]);
 
     function getStars(rating) {
+        // Convert rating out of 10 to a rating out of 5, and then round to the nearest half
         const stars = rating / 2;
         const roundedStars = Math.round(stars * 2) / 2;
 
+        // Define whether a star is full, half, or empty
         const fullStars = Math.floor(roundedStars);
         const hasHalfStar = roundedStars % 1 !== 0;
         const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
@@ -30,11 +32,11 @@ function StarRating() {
     return (
         <div className="explore__section__list">
             <Fetch
-                fetchUrl='https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1'
+                fetchUrl='https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1'
                 setData={setTopMovies}
             />
             {topMovies.results?.length > 0 ? (
-                topMovies.results?.map((movie) => (
+                topMovies.results?.sort((a, b) => b.vote_average - a.vote_average).map((movie) => (
                     <Link key={movie.id} to={`/details/${movie.id}`}>
                         <div className="explore__section__list__item">
                             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />

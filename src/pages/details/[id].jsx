@@ -13,11 +13,14 @@ function DetailsPage() {
     const hours = Math.floor(runTimeInHours);
     const minutes = Math.round((runTimeInHours - hours) * 60);
 
+    // Convert the rating from 10 to 5 scale
+    const halfRating = (details.vote_average / 2).toFixed(1);
+
     const bookmarkData = {
         id: details.id,
         title: details.title,
         poster: details.poster_path,
-        rating: details.vote_average,
+        rating: halfRating,
         runtime: `${hours}h ${minutes}m`,
         genres: details.genres?.map(genre => genre.name).join(', '),
     };
@@ -40,7 +43,7 @@ function DetailsPage() {
                     <div className="details__info">
                         <p className="details__info__director">Director: {director?.name}</p>
                         <p className="details__info-divide">|</p>
-                        <p><FaStar className="star" /> {details.vote_average?.toFixed(1)}</p>
+                        <p><FaStar className="star" /> {halfRating}</p>
                     </div>
                     <div className="details__info">
                         <p>{`${hours}h ${minutes}m`}</p>
