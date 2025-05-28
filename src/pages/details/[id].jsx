@@ -13,6 +13,7 @@ function DetailsPage() {
     const hours = Math.floor(runTimeInHours);
     const minutes = Math.round((runTimeInHours - hours) * 60);
 
+    // Convert the rating from 10 to 5 scale
     const halfRating = (details.vote_average / 2).toFixed(1);
 
     const bookmarkData = {

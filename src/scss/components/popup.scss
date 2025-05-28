@@ -23,15 +23,12 @@
     bottom: 0;
     width: 100vw;
     max-height: 80vh;
-
     transform: translateY(150%);
     transition: 400ms ease-in-out;
-
     background-color: root.$accent-blue;
     border-radius: 3rem 3rem 0 0;
     padding-block: 5rem 1rem;
     padding-inline: 2rem;
-
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -47,14 +44,12 @@
         left: 50vw;
         top: 0;
         transform: translateX(-50%) translateY(-50%);
-
         height: 7rem;
         width: 7rem;
         font-size: 4rem;
         background-color: root.$accent-blue;
         border: solid 3px root.$typeography-white;
         border-radius: 10rem;
-
         display: flex;
         justify-content: center;
         align-items: center;

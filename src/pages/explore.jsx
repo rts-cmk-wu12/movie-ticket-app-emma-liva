@@ -14,10 +14,6 @@ function Explore() {
     const [activeTab, setActiveTab] = useState('nowShowing');
     const [showSearch, setShowSearch] = useState(false);
 
-    function handleTabChange(tab) {
-        setActiveTab(tab);
-    };
-
     return (
         <>
             <Header
@@ -30,20 +26,21 @@ function Explore() {
             {showSearch && <Search />}
             <main>
                 <ChangeContent
-                    onTabChange={handleTabChange}
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
                 />
                 <div className="explore" style={{ display: activeTab === 'nowShowing' ? 'block' : 'none' }}>
                     <section className="explore__section">
                         <div className="explore__section__heading">
                             <h2>Top Movies</h2>
-                            <Link to="/see-more/top movies" >See more</Link>
+                            <Link to="/see-more/top movies">See more</Link>
                         </div>
                         <StarRating />
                     </section>
                     <section className="explore__section">
                         <div className="explore__section__heading">
                             <h2>Recommended</h2>
-                            <Link to="/see-more/recommended" >See more</Link>
+                            <Link to="/see-more/recommended">See more</Link>
                         </div>
                         <div className="explore__section__list">
                             <Fetch
@@ -81,7 +78,7 @@ function Explore() {
                                         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                                         <div className="upcoming__section__list__item__info">
                                             <h3>{movie.title}</h3>
-                                            <p><span>Release Date:</span> <br />{movie.release_date}</p>
+                                            <p><span>Release Date:</span><br />{movie.release_date}</p>
                                             <Genre ids={movie.genre_ids} />
                                         </div>
                                     </div>

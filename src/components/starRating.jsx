@@ -7,9 +7,11 @@ function StarRating() {
     const [topMovies, setTopMovies] = useState([]);
 
     function getStars(rating) {
+        // Convert rating out of 10 to a rating out of 5, and then round to the nearest half
         const stars = rating / 2;
         const roundedStars = Math.round(stars * 2) / 2;
 
+        // Define whether a star is full, half, or empty
         const fullStars = Math.floor(roundedStars);
         const hasHalfStar = roundedStars % 1 !== 0;
         const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);

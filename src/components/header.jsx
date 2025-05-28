@@ -42,7 +42,6 @@ function Header({ title, navigateReturn = true, search = false, bookmark = false
                 fetchUrl={'/api/plans'}
                 setData={setSavedBookmarks}
             />
-
             <header className="header">
                 {navigateReturn && <FaAngleLeft color='#FFF' onClick={() => navigate(-1)} className="header__left" />}
                 <h1 className="header__title">{title}</h1>

@@ -1,6 +1,8 @@
 import { useMemo } from "react";
 
 function RandomDate() {
+    // useMemo is used to memoise the random date generation logic.
+    // This is so new dates aren't generated on every render.
     const randomDate = useMemo(() => {
         const currentDate = new Date();
         const currentMonth = currentDate.getMonth() + 1;
@@ -28,7 +30,7 @@ function RandomDate() {
         }
 
         return `${targetDay}/${targetMonth}`;
-    }, [])
+    }, []);
 
     return <option value={randomDate}>{randomDate}</option>;
 }

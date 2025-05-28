@@ -1,17 +1,15 @@
-import { Link, useNavigate, useParams } from "react-router";
-import Fetch from "../../components/fetch";
-import Header from "../../components/header";
+import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
+import Header from "../../components/header";
+import Fetch from "../../components/fetch";
 import Genre from "../../components/genre";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import SwitchPage from "../../components/switch-page";
 
 function SeeMore() {
     const [seeAllMovies, setSeeAllMovies] = useState([]);
     const [seeMoreMovies, setSeeMoreMovies] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const { list } = useParams();
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (list === 'top movies') {
@@ -21,29 +19,17 @@ function SeeMore() {
         }
     }, [list, seeAllMovies]);
 
-
     return (
         <>
             <Header
                 title={list}
             />
-
             <main className="see-more">
-                <div className="pagination">
-                    <button
-                        type="button"
-                        onClick={() => setCurrentPage(currentPage - 1)}
-                        disabled={currentPage === 1}
-                        className="pagination__button"
-                    ><FaAngleLeft /></button>
-                    <p className="pagination__indicator">{seeAllMovies.page} / {seeAllMovies.total_pages}</p>
-                    <button
-                        type="button"
-                        onClick={() => setCurrentPage(currentPage + 1)}
-                        disabled={currentPage >= seeAllMovies.total_pages}
-                        className="pagination__button"
-                    ><FaAngleRight /></button>
-                </div>
+                <SwitchPage
+                    seeAllMovies={seeAllMovies}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
                 <div className="upcoming__section__list">
                     <Fetch
                         fetchUrl={`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${currentPage}`}
@@ -64,21 +50,11 @@ function SeeMore() {
                         ))
                     ) : <p>Loading...</p>}
                 </div>
-                <div className="pagination">
-                    <button
-                        type="button"
-                        onClick={() => setCurrentPage(currentPage - 1)}
-                        disabled={currentPage === 1}
-                        className="pagination__button"
-                    ><FaAngleLeft /></button>
-                    <p className="pagination__indicator">{seeAllMovies.page} / {seeAllMovies.total_pages}</p>
-                    <button
-                        type="button"
-                        onClick={() => setCurrentPage(currentPage + 1)}
-                        disabled={currentPage >= seeAllMovies.total_pages}
-                        className="pagination__button"
-                    ><FaAngleRight /></button>
-                </div>
+                <SwitchPage
+                    seeAllMovies={seeAllMovies}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
             </main>
         </>
     );
