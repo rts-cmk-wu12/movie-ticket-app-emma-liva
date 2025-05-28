@@ -1,5 +1,5 @@
-import express from "express";
 import { MongoClient, ObjectId } from "mongodb";
+import express from "express";
 
 const PORT = process.env.PORT;
 const MONGO_CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING;
@@ -30,15 +30,11 @@ app.use((req, res, next) => {
     "https://themoviez.onrender.com",
     "http://localhost:3001"
   ];
+  // Hej Henrik, jeg prøvede at fjerne denne del og sætte allowedOrigins direkte ind, men så gav det fejl i consolen.
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
     res.header("Access-Control-Allow-Origin", origin);
   }
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
   next();
 });
 
