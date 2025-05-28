@@ -19,9 +19,13 @@ function CheckoutPage() {
     function handleDate(e) {
         const input = e.target;
 
+        // Replace all characters which are not numbers 0-9 or a slash, with nothing.
         const replaceNonValidCharacters = input.value.replaceAll(/[^0-9\/]/g, '');
+        // Automatically add a 0 in front of the month number if the written month number is bigger than 1.
         const autoAddZero = replaceNonValidCharacters.length === 1 && Number(replaceNonValidCharacters) > 1 ? '0' + replaceNonValidCharacters : replaceNonValidCharacters;
+        // Prevent the user from writing more than 5 characters.
         const limitLength = autoAddZero.slice(0, 5);
+        // Automatically add a slash behind the month. If user deletes it, it won't auto-add it again.
         const addSlash = limitLength.length == 2 && e.nativeEvent.inputType !== 'deleteContentBackward' ? limitLength + '/' : limitLength;
         input.value = addSlash;
     }
